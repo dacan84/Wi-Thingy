@@ -1,0 +1,954 @@
+Archive member included because of file (symbol)
+
+c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
+                              c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51/crtm1281.o (exit)
+c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_copy_data.o)
+                              SourceFiles/network_proxy.o (__do_copy_data)
+c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_clear_bss.o)
+                              SourceFiles/sensor_proxy.o (__do_clear_bss)
+c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(strcpy.o)
+                              SourceFiles/XBee/payload.o (strcpy)
+c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(sprintf.o)
+                              SourceFiles/XBee/payload.o (sprintf)
+c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(vfprintf_std.o)
+                              c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(sprintf.o) (vfprintf)
+c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(strnlen_P.o)
+                              c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(vfprintf_std.o) (strnlen_P)
+c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(strnlen.o)
+                              c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(vfprintf_std.o) (strnlen)
+c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(fputc.o)
+                              c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(vfprintf_std.o) (fputc)
+c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(ultoa_invert.o)
+                              c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(vfprintf_std.o) (__ultoa_invert)
+
+Allocating common symbols
+Common symbol       size              file
+
+shtData             0x6               SourceFiles/sensor_proxy.o
+ntcData             0x2               SourceFiles/sensor_proxy.o
+h25k5aData          0x2               SourceFiles/sensor_proxy.o
+
+Discarded input sections
+
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51/crtm1281.o
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51/crtm1281.o
+ .text          0x00000000        0x0 SourceFiles/adc/averaged_adc.o
+ .data          0x00000000        0x0 SourceFiles/adc/averaged_adc.o
+ .bss           0x00000000        0x0 SourceFiles/adc/averaged_adc.o
+ .text.EnableAllAnalogInputBuffer
+                0x00000000        0xe SourceFiles/adc/averaged_adc.o
+ .text.EnableUsedAnalogInputBuffer
+                0x00000000        0x8 SourceFiles/adc/averaged_adc.o
+ .text.DisableUsedAnalogInputBuffer
+                0x00000000        0x6 SourceFiles/adc/averaged_adc.o
+ .text          0x00000000        0x0 SourceFiles/bmp085/bmp085.o
+ .data          0x00000000        0x0 SourceFiles/bmp085/bmp085.o
+ .bss           0x00000000        0x0 SourceFiles/bmp085/bmp085.o
+ .debug_info    0x00000000       0x56 SourceFiles/bmp085/bmp085.o
+ .debug_abbrev  0x00000000       0x26 SourceFiles/bmp085/bmp085.o
+ .debug_aranges
+                0x00000000       0x18 SourceFiles/bmp085/bmp085.o
+ .debug_line    0x00000000       0x1a SourceFiles/bmp085/bmp085.o
+ .debug_str     0x00000000      0x173 SourceFiles/bmp085/bmp085.o
+ .comment       0x00000000       0x31 SourceFiles/bmp085/bmp085.o
+ .text          0x00000000        0x0 SourceFiles/bsp.o
+ .data          0x00000000        0x0 SourceFiles/bsp.o
+ .bss           0x00000000        0x0 SourceFiles/bsp.o
+ .text          0x00000000        0x0 SourceFiles/h25k5a/h25k5a.o
+ .data          0x00000000        0x0 SourceFiles/h25k5a/h25k5a.o
+ .bss           0x00000000        0x0 SourceFiles/h25k5a/h25k5a.o
+ .text          0x00000000        0x0 SourceFiles/Interrupts.o
+ .data          0x00000000        0x0 SourceFiles/Interrupts.o
+ .bss           0x00000000        0x0 SourceFiles/Interrupts.o
+ .text          0x00000000        0x0 SourceFiles/main.o
+ .data          0x00000000        0x0 SourceFiles/main.o
+ .bss           0x00000000        0x0 SourceFiles/main.o
+ .text          0x00000000        0x0 SourceFiles/msb5540b/msb5540b.o
+ .data          0x00000000        0x0 SourceFiles/msb5540b/msb5540b.o
+ .bss           0x00000000        0x0 SourceFiles/msb5540b/msb5540b.o
+ .debug_info    0x00000000       0x56 SourceFiles/msb5540b/msb5540b.o
+ .debug_abbrev  0x00000000       0x26 SourceFiles/msb5540b/msb5540b.o
+ .debug_aranges
+                0x00000000       0x18 SourceFiles/msb5540b/msb5540b.o
+ .debug_line    0x00000000       0x1a SourceFiles/msb5540b/msb5540b.o
+ .debug_str     0x00000000      0x177 SourceFiles/msb5540b/msb5540b.o
+ .comment       0x00000000       0x31 SourceFiles/msb5540b/msb5540b.o
+ .text          0x00000000        0x0 SourceFiles/network_proxy.o
+ .data          0x00000000        0x0 SourceFiles/network_proxy.o
+ .bss           0x00000000        0x0 SourceFiles/network_proxy.o
+ .rodata.TRANSMIT_OPTIONS
+                0x00000000        0x1 SourceFiles/network_proxy.o
+ .rodata.BROADCAST_RADIUS
+                0x00000000        0x1 SourceFiles/network_proxy.o
+ .text          0x00000000        0x0 SourceFiles/ntc/ntc.o
+ .data          0x00000000        0x0 SourceFiles/ntc/ntc.o
+ .bss           0x00000000        0x0 SourceFiles/ntc/ntc.o
+ .text          0x00000000        0x0 SourceFiles/sensor_proxy.o
+ .data          0x00000000        0x0 SourceFiles/sensor_proxy.o
+ .bss           0x00000000        0x0 SourceFiles/sensor_proxy.o
+ .text          0x00000000        0x0 SourceFiles/sht11/sht11.o
+ .data          0x00000000        0x0 SourceFiles/sht11/sht11.o
+ .bss           0x00000000        0x0 SourceFiles/sht11/sht11.o
+ .text          0x00000000        0x0 SourceFiles/XBee/digi_api.o
+ .data          0x00000000        0x0 SourceFiles/XBee/digi_api.o
+ .bss           0x00000000        0x0 SourceFiles/XBee/digi_api.o
+ .text.XBeeEscape
+                0x00000000       0x16 SourceFiles/XBee/digi_api.o
+ .text          0x00000000        0x0 SourceFiles/XBee/digi_at_request.o
+ .data          0x00000000        0x0 SourceFiles/XBee/digi_at_request.o
+ .bss           0x00000000        0x0 SourceFiles/XBee/digi_at_request.o
+ .text.XBeeCreateRemoteAtCommandPacket
+                0x00000000       0x54 SourceFiles/XBee/digi_at_request.o
+ .text          0x00000000        0x0 SourceFiles/XBee/digi_hw.o
+ .data          0x00000000        0x0 SourceFiles/XBee/digi_hw.o
+ .bss           0x00000000        0x0 SourceFiles/XBee/digi_hw.o
+ .text          0x00000000        0x0 SourceFiles/XBee/digi_join.o
+ .data          0x00000000        0x0 SourceFiles/XBee/digi_join.o
+ .bss           0x00000000        0x0 SourceFiles/XBee/digi_join.o
+ .text          0x00000000        0x0 SourceFiles/XBee/digi_send.o
+ .data          0x00000000        0x0 SourceFiles/XBee/digi_send.o
+ .bss           0x00000000        0x0 SourceFiles/XBee/digi_send.o
+ .text          0x00000000        0x0 SourceFiles/XBee/digi_serial.o
+ .data          0x00000000        0x0 SourceFiles/XBee/digi_serial.o
+ .bss           0x00000000        0x0 SourceFiles/XBee/digi_serial.o
+ .text.EnableUart1Txd
+                0x00000000        0xc SourceFiles/XBee/digi_serial.o
+ .text.DisableUart1Txd
+                0x00000000        0xc SourceFiles/XBee/digi_serial.o
+ .text.DisableUart1Rxd
+                0x00000000        0xc SourceFiles/XBee/digi_serial.o
+ .text.EnableUart1TxInterrupt
+                0x00000000        0xc SourceFiles/XBee/digi_serial.o
+ .text.DisableUart1TxInterrupt
+                0x00000000        0xc SourceFiles/XBee/digi_serial.o
+ .text.DisableUart1RxInterrupt
+                0x00000000        0xc SourceFiles/XBee/digi_serial.o
+ .text.XBeeSerialSendArray
+                0x00000000       0x30 SourceFiles/XBee/digi_serial.o
+ .text.XBeeSerialRead
+                0x00000000        0x2 SourceFiles/XBee/digi_serial.o
+ .text.XBeeSerialAvailable
+                0x00000000        0xc SourceFiles/XBee/digi_serial.o
+ .text.XBeeSerialClose
+                0x00000000       0x12 SourceFiles/XBee/digi_serial.o
+ .text.XBeeSerialCheckInterrupt
+                0x00000000        0x6 SourceFiles/XBee/digi_serial.o
+ .text.XBeeSerialAckInterrupt
+                0x00000000        0x2 SourceFiles/XBee/digi_serial.o
+ .text          0x00000000        0x0 SourceFiles/XBee/digi_transmit_request.o
+ .data          0x00000000        0x0 SourceFiles/XBee/digi_transmit_request.o
+ .bss           0x00000000        0x0 SourceFiles/XBee/digi_transmit_request.o
+ .text          0x00000000        0x0 SourceFiles/XBee/payload.o
+ .data          0x00000000        0x0 SourceFiles/XBee/payload.o
+ .bss           0x00000000        0x0 SourceFiles/XBee/payload.o
+ .text.PayloadAppend
+                0x00000000       0x52 SourceFiles/XBee/payload.o
+ .text.PayloadPutRAMString
+                0x00000000       0x38 SourceFiles/XBee/payload.o
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
+ .text.libgcc   0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_copy_data.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_copy_data.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_copy_data.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_copy_data.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_copy_data.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_copy_data.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_copy_data.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_copy_data.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_copy_data.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_clear_bss.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_clear_bss.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_clear_bss.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_clear_bss.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_clear_bss.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_clear_bss.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_clear_bss.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_clear_bss.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_clear_bss.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(strcpy.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(strcpy.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(strcpy.o)
+ .text.avr-libc
+                0x00000000        0xe c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(strcpy.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(sprintf.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(sprintf.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(sprintf.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(vfprintf_std.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(vfprintf_std.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(vfprintf_std.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(strnlen_P.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(strnlen_P.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(strnlen_P.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(strnlen.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(strnlen.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(strnlen.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(fputc.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(fputc.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(fputc.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(ultoa_invert.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(ultoa_invert.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(ultoa_invert.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00020000         xr
+data             0x00800100         0x0000ff00         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+user_signatures  0x00850000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+Address of section .data set to 0x800200
+LOAD c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51/crtm1281.o
+LOAD SourceFiles/adc/averaged_adc.o
+LOAD SourceFiles/bmp085/bmp085.o
+LOAD SourceFiles/bsp.o
+LOAD SourceFiles/h25k5a/h25k5a.o
+LOAD SourceFiles/Interrupts.o
+LOAD SourceFiles/main.o
+LOAD SourceFiles/msb5540b/msb5540b.o
+LOAD SourceFiles/network_proxy.o
+LOAD SourceFiles/ntc/ntc.o
+LOAD SourceFiles/sensor_proxy.o
+LOAD SourceFiles/sht11/sht11.o
+LOAD SourceFiles/XBee/digi_api.o
+LOAD SourceFiles/XBee/digi_at_request.o
+LOAD SourceFiles/XBee/digi_hw.o
+LOAD SourceFiles/XBee/digi_join.o
+LOAD SourceFiles/XBee/digi_send.o
+LOAD SourceFiles/XBee/digi_serial.o
+LOAD SourceFiles/XBee/digi_transmit_request.o
+LOAD SourceFiles/XBee/payload.o
+START GROUP
+LOAD c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libm.a
+END GROUP
+START GROUP
+LOAD c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a
+LOAD c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libm.a
+LOAD c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a
+END GROUP
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000      0xe84
+ *(.vectors)
+ .vectors       0x00000000       0xcc c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51/crtm1281.o
+                0x00000000                __vector_default
+                0x00000000                __vectors
+ *(.vectors)
+ *(.progmem.gcc*)
+                0x000000cc                . = ALIGN (0x2)
+                0x000000cc                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x000000cc        0x0 linker stubs
+ *(.trampolines*)
+                0x000000cc                __trampolines_end = .
+ *(.progmem*)
+                0x000000cc                . = ALIGN (0x2)
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x000000cc                __ctors_start = .
+ *(.ctors)
+                0x000000cc                __ctors_end = .
+                0x000000cc                __dtors_start = .
+ *(.dtors)
+                0x000000cc                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x000000cc        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51/crtm1281.o
+                0x000000cc                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x000000cc        0xc c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51/crtm1281.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x000000d8       0x1a c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_copy_data.o)
+                0x000000d8                __do_copy_data
+ .init4         0x000000f2       0x10 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_clear_bss.o)
+                0x000000f2                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x00000102        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51/crtm1281.o
+ *(.init9)
+ *(.text)
+ .text          0x00000106        0x2 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51/crtm1281.o
+                0x00000106                __vector_38
+                0x00000106                __vector_22
+                0x00000106                __vector_28
+                0x00000106                __vector_1
+                0x00000106                __vector_32
+                0x00000106                __vector_34
+                0x00000106                __vector_24
+                0x00000106                __vector_12
+                0x00000106                __vector_46
+                0x00000106                __bad_interrupt
+                0x00000106                __vector_6
+                0x00000106                __vector_31
+                0x00000106                __vector_35
+                0x00000106                __vector_39
+                0x00000106                __vector_3
+                0x00000106                __vector_23
+                0x00000106                __vector_30
+                0x00000106                __vector_45
+                0x00000106                __vector_25
+                0x00000106                __vector_11
+                0x00000106                __vector_13
+                0x00000106                __vector_17
+                0x00000106                __vector_19
+                0x00000106                __vector_7
+                0x00000106                __vector_49
+                0x00000106                __vector_41
+                0x00000106                __vector_43
+                0x00000106                __vector_27
+                0x00000106                __vector_5
+                0x00000106                __vector_33
+                0x00000106                __vector_47
+                0x00000106                __vector_37
+                0x00000106                __vector_4
+                0x00000106                __vector_44
+                0x00000106                __vector_2
+                0x00000106                __vector_21
+                0x00000106                __vector_15
+                0x00000106                __vector_36
+                0x00000106                __vector_40
+                0x00000106                __vector_8
+                0x00000106                __vector_26
+                0x00000106                __vector_48
+                0x00000106                __vector_14
+                0x00000106                __vector_10
+                0x00000106                __vector_50
+                0x00000106                __vector_16
+                0x00000106                __vector_18
+                0x00000106                __vector_20
+                0x00000106                __vector_42
+                0x00000108                . = ALIGN (0x2)
+ *(.text.*)
+ .text.AdcInit  0x00000108       0x5e SourceFiles/adc/averaged_adc.o
+                0x00000108                AdcInit
+ .text.AdcConvert
+                0x00000166       0xd0 SourceFiles/adc/averaged_adc.o
+                0x00000166                AdcConvert
+ .text.DisableAllAnalogInputBuffer
+                0x00000236       0x10 SourceFiles/adc/averaged_adc.o
+                0x00000236                DisableAllAnalogInputBuffer
+ .text.__vector_29
+                0x00000246       0x14 SourceFiles/adc/averaged_adc.o
+                0x00000246                __vector_29
+ .text.BspInit  0x0000025a       0x24 SourceFiles/bsp.o
+                0x0000025a                BspInit
+ .text.H25k5aInit
+                0x0000027e        0x4 SourceFiles/h25k5a/h25k5a.o
+                0x0000027e                H25k5aInit
+ .text.H25k5aMeasure
+                0x00000282        0x8 SourceFiles/h25k5a/h25k5a.o
+                0x00000282                H25k5aMeasure
+ .text.EnableInterrupts
+                0x0000028a        0x4 SourceFiles/Interrupts.o
+                0x0000028a                EnableInterrupts
+ .text.ClearInterrupt
+                0x0000028e        0x4 SourceFiles/Interrupts.o
+                0x0000028e                ClearInterrupt
+ .text.EnableExternalInterruptPCINT0
+                0x00000292       0x16 SourceFiles/Interrupts.o
+                0x00000292                EnableExternalInterruptPCINT0
+ .text.DisableExternalInterruptPCINT0
+                0x000002a8       0x16 SourceFiles/Interrupts.o
+                0x000002a8                DisableExternalInterruptPCINT0
+ .text.__vector_9
+                0x000002be       0x8e SourceFiles/Interrupts.o
+                0x000002be                __vector_9
+ .text.main     0x0000034c       0x18 SourceFiles/main.o
+                0x0000034c                main
+ .text.SendMeasures
+                0x00000364       0xc8 SourceFiles/network_proxy.o
+                0x00000364                SendMeasures
+ .text.NtcInit  0x0000042c        0x4 SourceFiles/ntc/ntc.o
+                0x0000042c                NtcInit
+ .text.NtcMeasure
+                0x00000430        0x8 SourceFiles/ntc/ntc.o
+                0x00000430                NtcMeasure
+ .text.SensorProxyInit
+                0x00000438        0xa SourceFiles/sensor_proxy.o
+                0x00000438                SensorProxyInit
+ .text.MeasureSensors
+                0x00000442       0x18 SourceFiles/sensor_proxy.o
+                0x00000442                MeasureSensors
+ .text.Sht11Write
+                0x0000045a       0x5c SourceFiles/sht11/sht11.o
+ .text.Sht11Read
+                0x000004b6       0x58 SourceFiles/sht11/sht11.o
+ .text.Sht11MeasureParam
+                0x0000050e       0xba SourceFiles/sht11/sht11.o
+ .text.Sht11Init
+                0x000005c8        0xa SourceFiles/sht11/sht11.o
+                0x000005c8                Sht11Init
+ .text.Sht11Measure
+                0x000005d2       0x2c SourceFiles/sht11/sht11.o
+                0x000005d2                Sht11Measure
+ .text.XBeeCreatePacket
+                0x000005fe       0x2c SourceFiles/XBee/digi_api.o
+                0x000005fe                XBeeCreatePacket
+ .text.XBeeCreateCompleteATCommandPacket
+                0x0000062a       0x46 SourceFiles/XBee/digi_at_request.o
+                0x0000062a                XBeeCreateCompleteATCommandPacket
+ .text.XBeeCreateATCommandPacket
+                0x00000670       0x22 SourceFiles/XBee/digi_at_request.o
+                0x00000670                XBeeCreateATCommandPacket
+ .text.XBeeInit
+                0x00000692        0x8 SourceFiles/XBee/digi_hw.o
+                0x00000692                XBeeInit
+ .text.XBeeReset
+                0x0000069a       0x1a SourceFiles/XBee/digi_join.o
+                0x0000069a                XBeeReset
+ .text.XBeeJoin
+                0x000006b4       0x64 SourceFiles/XBee/digi_join.o
+                0x000006b4                XBeeJoin
+ .text.XBeeSendPacket
+                0x00000718       0x92 SourceFiles/XBee/digi_send.o
+                0x00000718                XBeeSendPacket
+ .text.EnableUart1Rxd
+                0x000007aa        0xc SourceFiles/XBee/digi_serial.o
+                0x000007aa                EnableUart1Rxd
+ .text.EnableUart1RxInterrupt
+                0x000007b6        0xc SourceFiles/XBee/digi_serial.o
+                0x000007b6                EnableUart1RxInterrupt
+ .text.XBeeSerialInit
+                0x000007c2       0x12 SourceFiles/XBee/digi_serial.o
+                0x000007c2                XBeeSerialInit
+ .text.XBeeSerialSend
+                0x000007d4       0x10 SourceFiles/XBee/digi_serial.o
+                0x000007d4                XBeeSerialSend
+ .text.XBeeCreateTransmitRequestPacket
+                0x000007e4       0x68 SourceFiles/XBee/digi_transmit_request.o
+                0x000007e4                XBeeCreateTransmitRequestPacket
+ .text.PayloadInit
+                0x0000084c       0x18 SourceFiles/XBee/payload.o
+                0x0000084c                PayloadInit
+ .text.PayloadPutByte
+                0x00000864       0x20 SourceFiles/XBee/payload.o
+                0x00000864                PayloadPutByte
+ .text.PayloadPutWord
+                0x00000884       0x2c SourceFiles/XBee/payload.o
+                0x00000884                PayloadPutWord
+ .text.PayloadPutString
+                0x000008b0       0x4c SourceFiles/XBee/payload.o
+                0x000008b0                PayloadPutString
+ .text.avr-libc
+                0x000008fc       0x5c c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(sprintf.o)
+                0x000008fc                sprintf
+ .text.avr-libc
+                0x00000958      0x3dc c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(vfprintf_std.o)
+                0x00000958                vfprintf
+ .text.avr-libc
+                0x00000d34       0x16 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(strnlen_P.o)
+                0x00000d34                strnlen_P
+ .text.avr-libc
+                0x00000d4a       0x16 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(strnlen.o)
+                0x00000d4a                strnlen
+ .text.avr-libc
+                0x00000d60       0x64 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(fputc.o)
+                0x00000d60                fputc
+ .text.avr-libc
+                0x00000dc4       0xbc c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(ultoa_invert.o)
+                0x00000dc4                __ultoa_invert
+                0x00000e80                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x00000e80        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
+                0x00000e80                _exit
+                0x00000e80                exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x00000e80        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
+ *(.fini0)
+                0x00000e84                _etext = .
+
+.data           0x00800200       0x14 load address 0x00000e84
+                0x00800200                PROVIDE (__data_start, .)
+ *(.data)
+ *(.data*)
+ .data.command.2269
+                0x00800200        0x3 SourceFiles/XBee/digi_join.o
+ .data.command.2278
+                0x00800203        0x3 SourceFiles/XBee/digi_join.o
+ .data.command.2273
+                0x00800206        0x3 SourceFiles/XBee/digi_join.o
+ *(.rodata)
+ *(.rodata*)
+ .rodata.SENSORS
+                0x00800209        0x2 SourceFiles/network_proxy.o
+                0x00800209                SENSORS
+ .rodata.COORDINATOR_ADDRESS
+                0x0080020b        0x8 SourceFiles/network_proxy.o
+                0x0080020b                COORDINATOR_ADDRESS
+ *(.gnu.linkonce.d*)
+                0x00800214                . = ALIGN (0x2)
+ *fill*         0x00800213        0x1 
+                0x00800214                _edata = .
+                0x00800214                PROVIDE (__data_end, .)
+
+.bss            0x00800214       0x87
+                0x00800214                PROVIDE (__bss_start, .)
+ *(.bss)
+ *(.bss*)
+ .bss.joinPacket
+                0x00800214       0x7d SourceFiles/XBee/digi_join.o
+ *(COMMON)
+ COMMON         0x00800291        0xa SourceFiles/sensor_proxy.o
+                0x00800291                shtData
+                0x00800297                ntcData
+                0x00800299                h25k5aData
+                0x0080029b                PROVIDE (__bss_end, .)
+                0x00000e84                __data_load_start = LOADADDR (.data)
+                0x00000e98                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x0080029b        0x0
+                0x0080029b                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x0080029b                PROVIDE (__noinit_end, .)
+                0x0080029b                _end = .
+                0x0080029b                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.user_signatures
+ *(.user_signatures*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x00000000       0x5c
+ *(.comment)
+ .comment       0x00000000       0x30 SourceFiles/adc/averaged_adc.o
+                                 0x31 (size before relaxing)
+ .comment       0x00000000       0x31 SourceFiles/bsp.o
+ .comment       0x00000000       0x31 SourceFiles/h25k5a/h25k5a.o
+ .comment       0x00000000       0x31 SourceFiles/Interrupts.o
+ .comment       0x00000000       0x31 SourceFiles/main.o
+ .comment       0x00000000       0x31 SourceFiles/network_proxy.o
+ .comment       0x00000000       0x31 SourceFiles/ntc/ntc.o
+ .comment       0x00000000       0x31 SourceFiles/sensor_proxy.o
+ .comment       0x00000000       0x31 SourceFiles/sht11/sht11.o
+ .comment       0x00000000       0x31 SourceFiles/XBee/digi_api.o
+ .comment       0x00000000       0x31 SourceFiles/XBee/digi_at_request.o
+ .comment       0x00000000       0x31 SourceFiles/XBee/digi_hw.o
+ .comment       0x00000000       0x31 SourceFiles/XBee/digi_join.o
+ .comment       0x00000000       0x31 SourceFiles/XBee/digi_send.o
+ .comment       0x00000000       0x31 SourceFiles/XBee/digi_serial.o
+ .comment       0x00000000       0x31 SourceFiles/XBee/digi_transmit_request.o
+ .comment       0x00000000       0x31 SourceFiles/XBee/payload.o
+ .comment       0x00000000       0x31 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(sprintf.o)
+ .comment       0x00000030       0x2c c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(vfprintf_std.o)
+                                 0x2d (size before relaxing)
+ .comment       0x00000000       0x31 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(fputc.o)
+
+.note.gnu.build-id
+ *(.note.gnu.build-id)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000      0x368
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x50 SourceFiles/adc/averaged_adc.o
+ .debug_aranges
+                0x00000050       0x20 SourceFiles/bsp.o
+ .debug_aranges
+                0x00000070       0x28 SourceFiles/h25k5a/h25k5a.o
+ .debug_aranges
+                0x00000098       0x40 SourceFiles/Interrupts.o
+ .debug_aranges
+                0x000000d8       0x20 SourceFiles/main.o
+ .debug_aranges
+                0x000000f8       0x20 SourceFiles/network_proxy.o
+ .debug_aranges
+                0x00000118       0x28 SourceFiles/ntc/ntc.o
+ .debug_aranges
+                0x00000140       0x28 SourceFiles/sensor_proxy.o
+ .debug_aranges
+                0x00000168       0x40 SourceFiles/sht11/sht11.o
+ .debug_aranges
+                0x000001a8       0x28 SourceFiles/XBee/digi_api.o
+ .debug_aranges
+                0x000001d0       0x30 SourceFiles/XBee/digi_at_request.o
+ .debug_aranges
+                0x00000200       0x20 SourceFiles/XBee/digi_hw.o
+ .debug_aranges
+                0x00000220       0x28 SourceFiles/XBee/digi_join.o
+ .debug_aranges
+                0x00000248       0x20 SourceFiles/XBee/digi_send.o
+ .debug_aranges
+                0x00000268       0x98 SourceFiles/XBee/digi_serial.o
+ .debug_aranges
+                0x00000300       0x20 SourceFiles/XBee/digi_transmit_request.o
+ .debug_aranges
+                0x00000320       0x48 SourceFiles/XBee/payload.o
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x00000000     0x574c
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x00000000      0x526 SourceFiles/adc/averaged_adc.o
+ .debug_info    0x00000526       0xc1 SourceFiles/bsp.o
+ .debug_info    0x000005e7      0x106 SourceFiles/h25k5a/h25k5a.o
+ .debug_info    0x000006ed      0x336 SourceFiles/Interrupts.o
+ .debug_info    0x00000a23       0xdf SourceFiles/main.o
+ .debug_info    0x00000b02      0x95a SourceFiles/network_proxy.o
+ .debug_info    0x0000145c      0x106 SourceFiles/ntc/ntc.o
+ .debug_info    0x00001562      0x4ff SourceFiles/sensor_proxy.o
+ .debug_info    0x00001a61     0x12d2 SourceFiles/sht11/sht11.o
+ .debug_info    0x00002d33      0x64b SourceFiles/XBee/digi_api.o
+ .debug_info    0x0000337e      0x774 SourceFiles/XBee/digi_at_request.o
+ .debug_info    0x00003af2       0xdb SourceFiles/XBee/digi_hw.o
+ .debug_info    0x00003bcd      0x8cf SourceFiles/XBee/digi_join.o
+ .debug_info    0x0000449c      0x656 SourceFiles/XBee/digi_send.o
+ .debug_info    0x00004af2      0x29d SourceFiles/XBee/digi_serial.o
+ .debug_info    0x00004d8f      0x6b6 SourceFiles/XBee/digi_transmit_request.o
+ .debug_info    0x00005445      0x307 SourceFiles/XBee/payload.o
+
+.debug_abbrev   0x00000000     0x14e8
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0x1e0 SourceFiles/adc/averaged_adc.o
+ .debug_abbrev  0x000001e0       0x6f SourceFiles/bsp.o
+ .debug_abbrev  0x0000024f       0xb6 SourceFiles/h25k5a/h25k5a.o
+ .debug_abbrev  0x00000305      0x1c1 SourceFiles/Interrupts.o
+ .debug_abbrev  0x000004c6       0x71 SourceFiles/main.o
+ .debug_abbrev  0x00000537      0x176 SourceFiles/network_proxy.o
+ .debug_abbrev  0x000006ad       0xb6 SourceFiles/ntc/ntc.o
+ .debug_abbrev  0x00000763      0x20b SourceFiles/sensor_proxy.o
+ .debug_abbrev  0x0000096e      0x2aa SourceFiles/sht11/sht11.o
+ .debug_abbrev  0x00000c18       0xee SourceFiles/XBee/digi_api.o
+ .debug_abbrev  0x00000d06      0x11d SourceFiles/XBee/digi_at_request.o
+ .debug_abbrev  0x00000e23       0xb8 SourceFiles/XBee/digi_hw.o
+ .debug_abbrev  0x00000edb      0x19c SourceFiles/XBee/digi_join.o
+ .debug_abbrev  0x00001077      0x109 SourceFiles/XBee/digi_send.o
+ .debug_abbrev  0x00001180      0x113 SourceFiles/XBee/digi_serial.o
+ .debug_abbrev  0x00001293       0xeb SourceFiles/XBee/digi_transmit_request.o
+ .debug_abbrev  0x0000137e      0x16a SourceFiles/XBee/payload.o
+
+.debug_line     0x00000000     0x1d2d
+ *(.debug_line .debug_line.* .debug_line_end)
+ .debug_line    0x00000000      0x2c8 SourceFiles/adc/averaged_adc.o
+ .debug_line    0x000002c8      0x115 SourceFiles/bsp.o
+ .debug_line    0x000003dd       0xfe SourceFiles/h25k5a/h25k5a.o
+ .debug_line    0x000004db      0x2ab SourceFiles/Interrupts.o
+ .debug_line    0x00000786      0x132 SourceFiles/main.o
+ .debug_line    0x000008b8      0x155 SourceFiles/network_proxy.o
+ .debug_line    0x00000a0d       0xf8 SourceFiles/ntc/ntc.o
+ .debug_line    0x00000b05      0x1e8 SourceFiles/sensor_proxy.o
+ .debug_line    0x00000ced      0x427 SourceFiles/sht11/sht11.o
+ .debug_line    0x00001114      0x137 SourceFiles/XBee/digi_api.o
+ .debug_line    0x0000124b      0x1ae SourceFiles/XBee/digi_at_request.o
+ .debug_line    0x000013f9       0xfb SourceFiles/XBee/digi_hw.o
+ .debug_line    0x000014f4      0x14a SourceFiles/XBee/digi_join.o
+ .debug_line    0x0000163e      0x139 SourceFiles/XBee/digi_send.o
+ .debug_line    0x00001777      0x277 SourceFiles/XBee/digi_serial.o
+ .debug_line    0x000019ee      0x146 SourceFiles/XBee/digi_transmit_request.o
+ .debug_line    0x00001b34      0x1f9 SourceFiles/XBee/payload.o
+
+.debug_frame    0x00000000      0x6c8
+ *(.debug_frame)
+ .debug_frame   0x00000000       0xac SourceFiles/adc/averaged_adc.o
+ .debug_frame   0x000000ac       0x24 SourceFiles/bsp.o
+ .debug_frame   0x000000d0       0x34 SourceFiles/h25k5a/h25k5a.o
+ .debug_frame   0x00000104       0xac SourceFiles/Interrupts.o
+ .debug_frame   0x000001b0       0x24 SourceFiles/main.o
+ .debug_frame   0x000001d4       0x4c SourceFiles/network_proxy.o
+ .debug_frame   0x00000220       0x34 SourceFiles/ntc/ntc.o
+ .debug_frame   0x00000254       0x34 SourceFiles/sensor_proxy.o
+ .debug_frame   0x00000288       0x98 SourceFiles/sht11/sht11.o
+ .debug_frame   0x00000320       0x34 SourceFiles/XBee/digi_api.o
+ .debug_frame   0x00000354       0x70 SourceFiles/XBee/digi_at_request.o
+ .debug_frame   0x000003c4       0x24 SourceFiles/XBee/digi_hw.o
+ .debug_frame   0x000003e8       0x4c SourceFiles/XBee/digi_join.o
+ .debug_frame   0x00000434       0x58 SourceFiles/XBee/digi_send.o
+ .debug_frame   0x0000048c      0x128 SourceFiles/XBee/digi_serial.o
+ .debug_frame   0x000005b4       0x44 SourceFiles/XBee/digi_transmit_request.o
+ .debug_frame   0x000005f8       0xd0 SourceFiles/XBee/payload.o
+
+.debug_str      0x00000000     0x12af
+ *(.debug_str)
+ .debug_str     0x00000000      0x61c SourceFiles/adc/averaged_adc.o
+                                0x650 (size before relaxing)
+ .debug_str     0x0000061c       0x4a SourceFiles/bsp.o
+                                0x1c2 (size before relaxing)
+ .debug_str     0x00000666       0x3d SourceFiles/h25k5a/h25k5a.o
+                                0x1b5 (size before relaxing)
+ .debug_str     0x000006a3      0x1c7 SourceFiles/Interrupts.o
+                                0x37c (size before relaxing)
+ .debug_str     0x0000086a       0x2b SourceFiles/main.o
+                                0x1b2 (size before relaxing)
+ .debug_str     0x00000895      0x373 SourceFiles/network_proxy.o
+                                0x512 (size before relaxing)
+ .debug_str     0x00000c08       0x2c SourceFiles/ntc/ntc.o
+                                0x1a9 (size before relaxing)
+ .debug_str     0x00000c34      0x127 SourceFiles/sensor_proxy.o
+                                0x3e9 (size before relaxing)
+ .debug_str     0x00000d5b       0x7c SourceFiles/sht11/sht11.o
+                                0x425 (size before relaxing)
+ .debug_str     0x00000dd7       0xab SourceFiles/XBee/digi_api.o
+                                0x489 (size before relaxing)
+ .debug_str     0x00000e82      0x166 SourceFiles/XBee/digi_at_request.o
+                                0x53e (size before relaxing)
+ .debug_str     0x00000fe8       0x42 SourceFiles/XBee/digi_hw.o
+                                0x1b0 (size before relaxing)
+ .debug_str     0x0000102a       0x69 SourceFiles/XBee/digi_join.o
+                                0x4a6 (size before relaxing)
+ .debug_str     0x00001093       0x2f SourceFiles/XBee/digi_send.o
+                                0x411 (size before relaxing)
+ .debug_str     0x000010c2      0x145 SourceFiles/XBee/digi_serial.o
+                                0x2d0 (size before relaxing)
+ .debug_str     0x00001207       0x3e SourceFiles/XBee/digi_transmit_request.o
+                                0x500 (size before relaxing)
+ .debug_str     0x00001245       0x6a SourceFiles/XBee/payload.o
+                                0x232 (size before relaxing)
+
+.debug_loc      0x00000000     0x13eb
+ *(.debug_loc)
+ .debug_loc     0x00000000      0x1ef SourceFiles/adc/averaged_adc.o
+ .debug_loc     0x000001ef       0x36 SourceFiles/h25k5a/h25k5a.o
+ .debug_loc     0x00000225      0x111 SourceFiles/Interrupts.o
+ .debug_loc     0x00000336       0x7c SourceFiles/network_proxy.o
+ .debug_loc     0x000003b2       0x36 SourceFiles/ntc/ntc.o
+ .debug_loc     0x000003e8      0x39a SourceFiles/sht11/sht11.o
+ .debug_loc     0x00000782       0x46 SourceFiles/XBee/digi_api.o
+ .debug_loc     0x000007c8      0x445 SourceFiles/XBee/digi_at_request.o
+ .debug_loc     0x00000c0d       0x55 SourceFiles/XBee/digi_join.o
+ .debug_loc     0x00000c62      0x122 SourceFiles/XBee/digi_send.o
+ .debug_loc     0x00000d84       0xdb SourceFiles/XBee/digi_serial.o
+ .debug_loc     0x00000e5f      0x270 SourceFiles/XBee/digi_transmit_request.o
+ .debug_loc     0x000010cf      0x31c SourceFiles/XBee/payload.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges   0x00000000      0x288
+ *(.debug_ranges)
+ .debug_ranges  0x00000000       0x70 SourceFiles/adc/averaged_adc.o
+ .debug_ranges  0x00000070       0x10 SourceFiles/bsp.o
+ .debug_ranges  0x00000080       0x18 SourceFiles/h25k5a/h25k5a.o
+ .debug_ranges  0x00000098       0x30 SourceFiles/Interrupts.o
+ .debug_ranges  0x000000c8       0x10 SourceFiles/main.o
+ .debug_ranges  0x000000d8       0x10 SourceFiles/network_proxy.o
+ .debug_ranges  0x000000e8       0x18 SourceFiles/ntc/ntc.o
+ .debug_ranges  0x00000100       0x18 SourceFiles/sensor_proxy.o
+ .debug_ranges  0x00000118       0x30 SourceFiles/sht11/sht11.o
+ .debug_ranges  0x00000148       0x18 SourceFiles/XBee/digi_api.o
+ .debug_ranges  0x00000160       0x20 SourceFiles/XBee/digi_at_request.o
+ .debug_ranges  0x00000180       0x10 SourceFiles/XBee/digi_hw.o
+ .debug_ranges  0x00000190       0x18 SourceFiles/XBee/digi_join.o
+ .debug_ranges  0x000001a8       0x10 SourceFiles/XBee/digi_send.o
+ .debug_ranges  0x000001b8       0x88 SourceFiles/XBee/digi_serial.o
+ .debug_ranges  0x00000240       0x10 SourceFiles/XBee/digi_transmit_request.o
+ .debug_ranges  0x00000250       0x38 SourceFiles/XBee/payload.o
+
+.debug_macro
+ *(.debug_macro)
+OUTPUT(WiThingy.elf elf32-avr)
+LOAD linker stubs

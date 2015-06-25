@@ -8,6 +8,7 @@
 
 #ifndef BMP085_H_
 #define BMP085_H_
+#include <stdint.h>
 #include <stdbool.h>
 
 #define BMP085_EOC		IOPORT_CREATE_PIN(PORTE, PINE5)
@@ -25,22 +26,17 @@ Sensor digital BMP085 -- Presión/Temperatura/Altitud
 #define BMP085_REG_R_LSB		0xF7    //11110111
 #define BMP085_REG_R_XLSB		0xF8    //11111000
 
-void sendbit_BMP085 (bool estado);
-bool getbit_BMP085(void);
-void Init_BMP085(void);
-void BMP085_Start_Condition(void);
-void BMP085_ReStart(void);
-void mandar_byte_BMP085(unsigned char value);
-bool recibir_ACK_BMP085(void);
-unsigned char recibir_byte_BMP085(void);
-void mandar_ACK_BMP085(bool value);
-void BMP085_Stop_Condition(void);
-void BMP085_Coef_Calib(void);
-void BMP085_Start_Mesure(unsigned char control_data);
-signed short BMP085_Read_Mesure(unsigned char registro);
-unsigned long BMP085_Read_Mesure_XLSB(unsigned char registro,unsigned char oss);
-void BMP085_Calc(unsigned short temperatura_BMP085, unsigned long presion_BMP085,unsigned char oss);
-void BMP085Update(unsigned char control_register);
+typedef struct {
+	uint16_t  pressure;
+	uint16_t  temperature;
+} BmpData;
 
+void Init_BMP085(void);
+void BMP085_Coef_Calib(void);
+void BMP085_Start_Mesure(uint8_t control_data);
+int8_t BMP085_Read_Mesure(uint8_t registro);
+uint16_t BMP085_Read_Mesure_XLSB(uint8_t registro,uint8_t oss);
+void BMP085_Calc(uint8_t temperatura_BMP085, uint16_t presion_BMP085,uint8_t oss);
+void BMP085Update(uint8_t control_register);
 
 #endif /* BMP085_H_ */

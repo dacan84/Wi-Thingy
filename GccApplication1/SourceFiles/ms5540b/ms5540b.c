@@ -27,9 +27,9 @@ Sensor digital presión-temperatura  MS5540b
 void  Ms5540Init(void) {
 	uint8_t i;
 	//DIN, SCLK, MCLK -- salida, DOUT -- entrada
-	ioport_set_pin_dir(MSB_DIN,IOPORT_DIR_OUTPUT);
-	ioport_set_pin_dir(MSB_SCLK,IOPORT_DIR_OUTPUT);
-	ioport_set_pin_dir(MSB_DOUT,IOPORT_DIR_INPUT);
+	ioport_set_pin_dir(MS_DIN,IOPORT_DIR_OUTPUT);
+	ioport_set_pin_dir(MS_SCLK,IOPORT_DIR_OUTPUT);
+	ioport_set_pin_dir(MS_DOUT,IOPORT_DIR_INPUT);
 	
 	msbError = FALSE;
 	//Un reset antes de cada tirada confirma el buen protocolo
@@ -44,10 +44,10 @@ void  Ms5540Init(void) {
 	}
 }
 
-void Ms5540Measure(MsData* data) {	
+void Ms5540Measure(MsData* data) {
 	//Timer 0 -- 31,25Hz
 	Timer0_32768HzInit();
-	 Ms5540Init();
+	Ms5540Init();
 	data->pressureD1 = Ms5540GetD1Pressure();
 	data->temperatureD2 = Ms5540GetD2Temperature();
 	//Ms5540Calculate(Pressure,BaroTemp, d1, d2);
@@ -58,33 +58,33 @@ void Ms5540Measure(MsData* data) {
 void Ms5540Calculate(MsData* data) {//ShtData* data
 	MsCalculateData msCalculateData;
 	float fd1, fd2, x,dt, off, sens;
-
-	fd1 = (float) msData.pressureD1;
-	fd2 = (float) msData.temperatureD2;
+									 
+	fd1 = (float) data.pressureD1;
+	fd2 = (float) data.temperatureD2;
 
 	dt   =   fd2 - ((8.0 * fc[4]) + 20224.0);
 	off  =   fc[1] * 4.0 + (((fc[3]-512.0)*dt)/4096.0);
 	sens =   24576.0 +  fc[0] + ((fc[2]*dt)/1024.0);
 	x    =   (( sens * (fd1- 7168.0)) / 16384.0) - off;
 	
-	
-	//TODO: retocar este codigo asquroso.
+	//TODO: habria que escribir el retorno de del valor del cálculo pero de momento no lo hago. Por que no voy utilizar.
+
 	msCalculateData.pressure = (250.0 + (x / 32.0))*10;
 	//Máximo de presión 1100 mbar
 	if(msCalculateData.pressure > 11000.0) msCalculateData.pressure = 0;
-	vector_datos_micro[posicion_sensor] = (pressure>>8);
-	++posicion_sensor;
-	vector_datos_micro[posicion_sensor] = (pressure);
-	++posicion_sensor;
-	
+	//vector_datos_micro[posicion_sensor] = (pressure>>8);
+	//++posicion_sensor;
+	//vector_datos_micro[posicion_sensor] = (pressure);
+	//++posicion_sensor;
+	//
 	msCalculateData.temperature	 =  (200.0 +((dt*(fc[5]+50.0))/1024.0));
 	//Máximo de temperatura 85 ºC
 	if(msCalculateData.temperature > 850.0) msCalculateData.temperature = 0;
-	vector_datos_micro[posicion_sensor] = (temperature>>8);
-	++posicion_sensor;
-	vector_datos_micro[posicion_sensor] = (temperature);
-	++posicion_sensor;
-	longitud_datos_sensores+=4;
+	//vector_datos_micro[posicion_sensor] = (temperature>>8);
+	//++posicion_sensor;
+	//vector_datos_micro[posicion_sensor] = (temperature);
+	//++posicion_sensor;
+	//longitud_datos_sensores+=4;
 }
 
 uint16_t Ms5540ConvertWCoefficients(uint8_t ix, uint16_t W1, uint16_t W2, uint16_t W3,	uint16_t	 W4) {
@@ -251,18 +251,20 @@ uint8_t Ms5540WaitOnDoutFall(void) {
 
 void Ms5540SetSCLK(uint8_t state) {
 	cli();
-	if (state) PDIGITAL_PORT |= BAROMETER_SCLK;
-	else PDIGITAL_PORT &= ~BAROMETER_SCLK;
+	if (state) {
+		ioport_set_pin_high(MS_SCLK);
+	} else {
+		ioport_set_pin_low(MS_SCLK);
+	}
 	sei();
 }
 
 uint8_t Ms5540GetSCLK(void) {
 	cli();
-	if ((PDIGITAL_PIN & BAROMETER_SCLK)	{
+	if (ioport_get_pin_level(MS_SCLK)) {
 		sei();
 		return 1;
-	}
-	else {
+	} else {
 		sei();
 		return 0;
 	}
@@ -270,18 +272,20 @@ uint8_t Ms5540GetSCLK(void) {
 
 void Ms5540SetDIN(uint8_t state) {
 	cli();
-	if (state) PDIGITAL_PORT |= BAROMETER_DIN;
-	else PDIGITAL_PORT &= ~BAROMETER_DIN;
+	if (state) {
+		ioport_set_pin_high(MS_DIN);
+	} else { 
+		ioport_set_pin_low(MS_DIN);
+	}
 	sei();
 }
 
 uint8_t Ms5540GetDIN(void) {
 	cli();
-	if ((PDIGITAL_PIN & BAROMETER_DIN))	{
+	if (ioport_get_pin_level(MS_DIN))	{
 		sei();
 		return 1;
-	}
-	else {
+	} else {
 		sei();
 		return 0;
 	}
@@ -289,11 +293,10 @@ uint8_t Ms5540GetDIN(void) {
 
 uint8_t Ms5540GetDOUT(void) {
 	cli();
-	if ((PDIGITAL_PIN & BAROMETER_DOUT)){
+	if (ioport_get_pin_level(MS_DOUT)){
 		sei();
 		return 1;
-	}
-	else{
+	} else{
 		sei();
 		return 0;
 	}

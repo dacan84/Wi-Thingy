@@ -36,16 +36,18 @@ SUBDIRS :=  \
 ../HeaderFiles \
 ../HeaderFiles/adc \
 ../HeaderFiles/bmp085 \
-../HeaderFiles/msb5540b \
+../HeaderFiles/ms5540b \
 ../HeaderFiles/h25k5a \
+../HeaderFiles/timers \
 ../HeaderFiles/ntc \
 ../HeaderFiles/sht11 \
 ../HeaderFiles/XBee \
 ../SourceFiles \
 ../SourceFiles/adc \
 ../SourceFiles/bmp085/ \
-../SourceFiles/msb5540b \
+../SourceFiles/ms5540b \
 ../SourceFiles/h25k5a \
+../SourceFiles/timers \
 ../SourceFiles/ntc \
 ../SourceFiles/sht11/ \
 ../SourceFiles/XBee \
@@ -74,11 +76,12 @@ C_SRCS +=  \
 ../SourceFiles/h25k5a/h25k5a.c \
 ../SourceFiles/Interrupts.c \
 ../SourceFiles/main.c \
-../SourceFiles/msb5540b/msb5540b.c \
+../SourceFiles/ms5540b/ms5540b.c \
 ../SourceFiles/network_proxy.c \
 ../SourceFiles/ntc/ntc.c \
 ../SourceFiles/sensor_proxy.c \
 ../SourceFiles/sht11/sht11.c \
+../SourceFiles/timers/timer0.c \
 ../SourceFiles/XBee/digi_api.c \
 ../SourceFiles/XBee/digi_at_request.c \
 ../SourceFiles/XBee/digi_hw.c \
@@ -102,11 +105,12 @@ SourceFiles/bsp.o \
 SourceFiles/h25k5a/h25k5a.o \
 SourceFiles/Interrupts.o \
 SourceFiles/main.o \
-SourceFiles/msb5540b/msb5540b.o \
+SourceFiles/ms5540b/ms5540b.o \
 SourceFiles/network_proxy.o \
 SourceFiles/ntc/ntc.o \
 SourceFiles/sensor_proxy.o \
 SourceFiles/sht11/sht11.o \
+SourceFiles/timers/timer0.o \
 SourceFiles/XBee/digi_api.o \
 SourceFiles/XBee/digi_at_request.o \
 SourceFiles/XBee/digi_hw.o \
@@ -123,11 +127,12 @@ SourceFiles/bsp.o \
 SourceFiles/h25k5a/h25k5a.o \
 SourceFiles/Interrupts.o \
 SourceFiles/main.o \
-SourceFiles/msb5540b/msb5540b.o \
+SourceFiles/ms5540b/ms5540b.o \
 SourceFiles/network_proxy.o \
 SourceFiles/ntc/ntc.o \
 SourceFiles/sensor_proxy.o \
 SourceFiles/sht11/sht11.o \
+SourceFiles/timers/timer0.o \
 SourceFiles/XBee/digi_api.o \
 SourceFiles/XBee/digi_at_request.o \
 SourceFiles/XBee/digi_hw.o \
@@ -144,11 +149,12 @@ SourceFiles/bsp.d \
 SourceFiles/h25k5a/h25k5a.d \
 SourceFiles/Interrupts.d \
 SourceFiles/main.d \
-SourceFiles/msb5540b/msb5540b.d \
+SourceFiles/ms5540b/ms5540b.d \
 SourceFiles/network_proxy.d \
 SourceFiles/ntc/ntc.d \
 SourceFiles/sensor_proxy.d \
 SourceFiles/sht11/sht11.d \
+SourceFiles/timers/timer0.d \
 SourceFiles/XBee/digi_api.d \
 SourceFiles/XBee/digi_at_request.d \
 SourceFiles/XBee/digi_hw.d \
@@ -165,11 +171,12 @@ SourceFiles/bsp.d \
 SourceFiles/h25k5a/h25k5a.d \
 SourceFiles/Interrupts.d \
 SourceFiles/main.d \
-SourceFiles/msb5540b/msb5540b.d \
+SourceFiles/ms5540b/ms5540b.d \
 SourceFiles/network_proxy.d \
 SourceFiles/ntc/ntc.d \
 SourceFiles/sensor_proxy.d \
 SourceFiles/sht11/sht11.d \
+SourceFiles/timers/timer0.d \
 SourceFiles/XBee/digi_api.d \
 SourceFiles/XBee/digi_at_request.d \
 SourceFiles/XBee/digi_hw.d \
@@ -193,6 +200,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 
@@ -260,7 +269,7 @@ SourceFiles/h25k5a/%.o: ../SourceFiles/h25k5a/%.c
 	@echo Finished building: $<
 	
 
-SourceFiles/msb5540b/%.o: ../SourceFiles/msb5540b/%.c
+SourceFiles/ms5540b/%.o: ../SourceFiles/ms5540b/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 4.8.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"../HeaderFiles" -I"../HeaderFiles/adc" -I"../HeaderFiles/XBee" -I"../HeaderFiles/ntc" -I"../HeaderFiles/h25k5a" -I"../HeaderFiles/sht11" -I"../HeaderFiles/msb5540b" -I"../HeaderFiles/bmp085" -I"../SourceFiles" -I"../SourceFiles/adc" -I"../SourceFiles/XBee" -I"../SourceFiles/ntc" -I"../SourceFiles/h25k5a" -I"../SourceFiles/msb5540b" -I"../SourceFiles/bmp085" -I"../src/ASF/common/services/ioport" -I"../src/ASF/common/utils" -I"../src/ASF/mega/drivers/adc" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=atmega1281 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
@@ -275,6 +284,13 @@ SourceFiles/ntc/%.o: ../SourceFiles/ntc/%.c
 	
 
 SourceFiles/sht11/%.o: ../SourceFiles/sht11/%.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 4.8.1
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"../HeaderFiles" -I"../HeaderFiles/adc" -I"../HeaderFiles/XBee" -I"../HeaderFiles/ntc" -I"../HeaderFiles/h25k5a" -I"../HeaderFiles/sht11" -I"../HeaderFiles/msb5540b" -I"../HeaderFiles/bmp085" -I"../SourceFiles" -I"../SourceFiles/adc" -I"../SourceFiles/XBee" -I"../SourceFiles/ntc" -I"../SourceFiles/h25k5a" -I"../SourceFiles/msb5540b" -I"../SourceFiles/bmp085" -I"../src/ASF/common/services/ioport" -I"../src/ASF/common/utils" -I"../src/ASF/mega/drivers/adc" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=atmega1281 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+SourceFiles/timers/%.o: ../SourceFiles/timers/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 4.8.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"../HeaderFiles" -I"../HeaderFiles/adc" -I"../HeaderFiles/XBee" -I"../HeaderFiles/ntc" -I"../HeaderFiles/h25k5a" -I"../HeaderFiles/sht11" -I"../HeaderFiles/msb5540b" -I"../HeaderFiles/bmp085" -I"../SourceFiles" -I"../SourceFiles/adc" -I"../SourceFiles/XBee" -I"../SourceFiles/ntc" -I"../SourceFiles/h25k5a" -I"../SourceFiles/msb5540b" -I"../SourceFiles/bmp085" -I"../src/ASF/common/services/ioport" -I"../src/ASF/common/utils" -I"../src/ASF/mega/drivers/adc" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=atmega1281 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

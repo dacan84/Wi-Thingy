@@ -1,10 +1,9 @@
 /*
- * bmp085.c
- *
- * Created: 17/06/2015 10:57:27
- *  Author: Diego
- */ 
-
+* bmp085.c
+*
+* Created: 17/06/2015 10:57:27
+*  Author: Diego
+*/
 
 #include <avr/io.h>
 #include <avr/sleep.h>
@@ -12,22 +11,18 @@
 #include <avr/iom1281.h>
 #include <util/delay.h>
 #include "bmp085.h"
+#include "timer0.h"
 
-#ifdef MOTE_ENDDEVICE
+unsigned BMP085Error = FALSE;
 
-#include "INCLUDE/timer0.h"
- unsigned HumiError = FALSE;
- unsigned BaroError = FALSE;
- unsigned BMP085Error = FALSE;
+unsigned int d1,d2;
 
- unsigned int d1,d2;
+unsigned int w[4];
+unsigned int fc[6];
+signed short coef_BMP085[11];
 
- unsigned int w[4];
- unsigned int fc[6];
- signed short coef_BMP085[11];
-
- unsigned int Pressure, BaroTemp;
- unsigned int Humidity;
+unsigned int Pressure, BaroTemp;
+unsigned int Humidity;
 
 /*******************************************************************************
 Sensor digital BMP085 -- Presión/Temperatura/Altitud
@@ -43,7 +38,7 @@ void sendbit_BMP085 (bool estado)  {
 bool getbit_BMP085(void) {
 	if (ioport_get_pin_level(BMP085_SDA)) {
 		return 1;
-		}
+	}
 	else {
 		return 0;
 	}
@@ -77,7 +72,7 @@ void BMP085_Start_Condition(void){
 	sendbit_BMP085(0);
 
 	//Activamos el SCL -- empieza en alto
-	timer_50KHz_init();
+	Timer0_50KHzInit();
 
 	tiempo=0;
 	//Condición de Start del SCL -- 0
@@ -104,7 +99,6 @@ void BMP085_ReStart(void)	{
 	//Condición de Start del SCL -- 0
 	//Esperar mientras este en 1
 	while(PING & _BV(PING5)){if(tiempo>50){tiempo=0; break;} ++tiempo;}
-	return;
 }
 
 void mandar_byte_BMP085(unsigned char value) {
@@ -199,7 +193,7 @@ void BMP085_Stop_Condition(void) {
 	while(!(PING & _BV(PING5))){if(tiempo>50){tiempo=0; break;} ++tiempo;}
 
 	//Paramos el reloj
-	timer_stop();
+	Timer0Stop();
 
 	//Aseguramos SDA de salida
 	ioport_set_pin_dir(BMP085_SDA,IOPORT_DIR_OUTPUT);

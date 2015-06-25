@@ -10,7 +10,7 @@
 #include "averaged_adc.h"
 #include "../sht11/sht11.h"
 #include "../bmp085/bmp085.h"
-#include "../msb5540b/msb5540b.h"
+#include "../ms5540b/ms5540b.h"
 #include "../h25k5a/h25k5a.h"
 #include "../ntc/ntc.h"
 #include <math.h>
@@ -40,15 +40,15 @@ static void PowerDownVFC(void);
 ShtData shtData;
 uint16_t h25k5aData;
 uint16_t ntcData;
-//extern MsbData	msbData;
-//extern BmpData	bmpData;
+MsData	msData;
+//BmpData	bmpData;
 
 void SensorProxyInit(void) {
 	Sht11Init();
 	InternalAnalogSensorPowerCtrlInit();
 	NtcInit();
 	H25k5aInit();
-	//	MSB5540bInit();
+	Ms5540Init();
 	//	BMP085Init();
 }
 
@@ -68,6 +68,7 @@ void MeasureSensors(void) {
 
 	//TODO: implementar estos métodos.
 	//MSB5540b sequence
+	Ms5540Measure(&msData);
 	
 	//BMP085 sequence
 	

@@ -14,7 +14,7 @@ SourceFiles\Interrupts.c
 
 SourceFiles\main.c
 
-SourceFiles\msb5540b\msb5540b.c
+SourceFiles\ms5540b\ms5540b.c
 
 SourceFiles\network_proxy.c
 
@@ -23,6 +23,8 @@ SourceFiles\ntc\ntc.c
 SourceFiles\sensor_proxy.c
 
 SourceFiles\sht11\sht11.c
+
+SourceFiles\timers\timer0.c
 
 SourceFiles\XBee\digi_api.c
 

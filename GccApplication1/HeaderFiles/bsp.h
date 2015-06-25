@@ -30,7 +30,7 @@
 #define BMP085_ID   'B'
 #define H25K5A_ID	'H'
 #define NTC_ID		'N'
-#define MSB_ID		'M'
+#define MS_ID		'M'
 
 void BspInit(void);
 

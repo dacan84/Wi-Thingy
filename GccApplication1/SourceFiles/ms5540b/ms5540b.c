@@ -12,7 +12,24 @@
 #include <math.h>
 #include <util/delay.h>
 #include <ioport.h>
+#include "ms5540b.h"
 #include "timer0.h"
+#include "bsp.h"
+
+static uint16_t Ms5540Get16(void);
+static void Ms5540WaitOnePulse(void);
+static uint8_t Ms5540WaitOnDoutFall(void);
+static void Ms5540SetSCLK(uint8_t state);
+static uint8_t Ms5540GetSCLK(void);
+static void Ms5540SetDIN(uint8_t state);
+static uint8_t Ms5540GetDIN(void);
+static uint8_t Ms5540GetDOUT(void);
+static void Ms5540SendLsbFirst(uint8_t pattern, uint8_t nbr_clock);
+static uint16_t Ms5540GetD1Pressure(void);
+static uint16_t Ms5540GetD2Temperature(void);
+static uint16_t Ms5540GetWordCoefficients(uint8_t index);
+static void Ms5540Reset(void);
+
 
 bool msbError = FALSE;
 
@@ -36,12 +53,12 @@ void  Ms5540Init(void) {
 	Ms5540Reset();
 	for (i=0; i<4; i++) {
 		//Obtenemos las 4 words
-		w[i] = Ms5540GetWCoefficients(i);
+		w[i] = Ms5540GetWordCoefficients(i);
 	}
 	for (i=0; i<6; i++) {
 		//Convertimos las words en coeficientes
-		fc[i] = Ms5540ConvertWCoefficients(i, w[0], w[1], w[2], w[3]);
-	}
+		fc[i] = Ms5540ConvertWordsToCoefficients(i, w[0], w[1], w[2], w[3]);
+	}																			
 }
 
 void Ms5540Measure(MsData* data) {
@@ -55,12 +72,12 @@ void Ms5540Measure(MsData* data) {
 	Timer0_32768HzStop();
 }
 
-void Ms5540Calculate(MsData* data) {//ShtData* data
-	MsCalculateData msCalculateData;
+void Ms5540Calculate(MsData* data, MsCalculateData* dataCalculated) {//ShtData* data
+	
 	float fd1, fd2, x,dt, off, sens;
 									 
-	fd1 = (float) data.pressureD1;
-	fd2 = (float) data.temperatureD2;
+	fd1 = (float) data->pressureD1;
+	fd2 = (float) data->temperatureD2;
 
 	dt   =   fd2 - ((8.0 * fc[4]) + 20224.0);
 	off  =   fc[1] * 4.0 + (((fc[3]-512.0)*dt)/4096.0);
@@ -69,49 +86,51 @@ void Ms5540Calculate(MsData* data) {//ShtData* data
 	
 	//TODO: habria que escribir el retorno de del valor del cálculo pero de momento no lo hago. Por que no voy utilizar.
 
-	msCalculateData.pressure = (250.0 + (x / 32.0))*10;
+	dataCalculated->pressure = (250.0 + (x / 32.0))*10;
 	//Máximo de presión 1100 mbar
-	if(msCalculateData.pressure > 11000.0) msCalculateData.pressure = 0;
-	//vector_datos_micro[posicion_sensor] = (pressure>>8);
-	//++posicion_sensor;
-	//vector_datos_micro[posicion_sensor] = (pressure);
-	//++posicion_sensor;
-	//
-	msCalculateData.temperature	 =  (200.0 +((dt*(fc[5]+50.0))/1024.0));
-	//Máximo de temperatura 85 ºC
-	if(msCalculateData.temperature > 850.0) msCalculateData.temperature = 0;
-	//vector_datos_micro[posicion_sensor] = (temperature>>8);
-	//++posicion_sensor;
-	//vector_datos_micro[posicion_sensor] = (temperature);
-	//++posicion_sensor;
-	//longitud_datos_sensores+=4;
-}
+	if(dataCalculated->pressure > 11000.0) {
+		dataCalculated->pressure = 0;
+	}
 
-uint16_t Ms5540ConvertWCoefficients(uint8_t ix, uint16_t W1, uint16_t W2, uint16_t W3,	uint16_t	 W4) {
-	unsigned int c;
-	unsigned int x, y;
+	dataCalculated->temperature	 =  (200.0 +((dt*(fc[5]+50.0))/1024.0));
+	//Máximo de temperatura 85 ºC
+	if(dataCalculated->temperature > 850.0) {
+		dataCalculated->temperature = 0;  
+	}
+}
+		
+
+
+uint16_t Ms5540ConvertWordsToCoefficients(uint8_t ix, uint16_t W1, uint16_t W2, uint16_t W3,	uint16_t	 W4) {
+	uint16_t c;
+	uint16_t x, y;
 
 	c = 0;
 	switch (ix) {
 		case 0:
 		c =  (W1 >> 1) & 0x7FFF;
 		break;
+		
 		case 1:
 		x = (W3 << 6) & 0x0FC0;
 		y =  W4       & 0x003F;
 		c = x | y;
 		break;
+		
 		case 2:
 		c = (W4 >> 6) & 0x03FF;
 		break;
+		
 		case 3:
 		c = (W3 >> 6) & 0x03FF;
 		break;
+		
 		case 4:
 		x = (W1 << 10)& 0x0400;
 		y = (W2 >> 6 )& 0x03FF;
 		c = x | y;
 		break;
+		
 		case 5:
 		c =  W2       & 0x003F;
 		break;
@@ -119,38 +138,48 @@ uint16_t Ms5540ConvertWCoefficients(uint8_t ix, uint16_t W1, uint16_t W2, uint16
 	return(c);
 }
 
-uint16_t Ms5540GetD1Pressure(void) {
+static uint16_t Ms5540GetD1Pressure(void) {
 	uint16_t d1;
 
 	Ms5540SendLsbFirst(0x2F, 8);
 	Ms5540SendLsbFirst(0x00, 2);
 
-	if (Ms5540GetDOUT()==FALSE) msbError = 1;   // line should be at 1 now
+	if (Ms5540GetDOUT()==FALSE) {
+		msbError = 1;   // line should be at 1 now
+	}
 	Ms5540SendLsbFirst(0x00, 2);
 
-	if (!msbError) msbError = Ms5540WaitOnDoutFall();
-	if (!msbError) d1 = Ms5540Get16();
-	else d1 = 0;
+	if (!msbError) {
+		msbError = Ms5540WaitOnDoutFall();
+		d1 = Ms5540Get16();
+	} else {
+		d1 = 0;
+	}
 	return(d1);
 }
 
-uint16_t Ms5540GetD2Temperature(void) {
+static uint16_t Ms5540GetD2Temperature(void) {
 	uint16_t d2;
 
 	Ms5540SendLsbFirst(0x4F, 8);
 	Ms5540SendLsbFirst(0x00, 3);                 // Note the difference
 	// with BarometerGetD1
 
-	if (Ms5540GetDOUT()==FALSE) msbError = 1;   // line should be at 1 now
+	if (Ms5540GetDOUT()==FALSE)  {
+		msbError = 1;   // line should be at 1 now
+	}
 	Ms5540SendLsbFirst(0x00, 1);
 
-	if (!msbError) msbError = Ms5540WaitOnDoutFall();
-	if (!msbError) d2 = Ms5540Get16();
-	else d2 = 0;
+	if (!msbError) {
+		msbError = Ms5540WaitOnDoutFall();
+		d2 = Ms5540Get16();
+	} else {
+		d2 = 0;
+	}
 	return(d2);
 }
 
-uint16_t Ms5540GetWCoefficients(uint8_t index) {
+static uint16_t Ms5540GetWordCoefficients(uint8_t index) {
 	uint16_t data;
 
 	data = 0;
@@ -184,14 +213,14 @@ uint16_t Ms5540GetWCoefficients(uint8_t index) {
 	return(data);
 }
 
-void Ms5540Reset(void) {
+static void Ms5540Reset(void) {
 	Ms5540SendLsbFirst(0x55, 8);
 	Ms5540SendLsbFirst(0x55, 8);
 	Ms5540SendLsbFirst(0x00, 5);
 }
 
-uint16_t Ms5540Get16(void) {
-	char i;
+static uint16_t Ms5540Get16(void) {
+	uint8_t i;
 	uint16_t v;
 
 	v = 0;
@@ -209,9 +238,9 @@ uint16_t Ms5540Get16(void) {
 	return(v);
 }
 
-void Ms5540SendLsbFirst(char pattern, char nbr_clock) {
-	char i;
-	char c;
+static void Ms5540SendLsbFirst(uint8_t pattern, uint8_t nbr_clock) {
+	uint8_t i;
+	uint8_t c;
 
 	Ms5540SetSCLK(FALSE);
 	Ms5540WaitOnePulse();
@@ -227,7 +256,7 @@ void Ms5540SendLsbFirst(char pattern, char nbr_clock) {
 	}
 }
 
-uint8_t Ms5540WaitOnDoutFall(void) {
+static uint8_t Ms5540WaitOnDoutFall(void) {
 	bool working;
 	uint16_t cnt;
 	uint8_t error;
@@ -249,7 +278,7 @@ uint8_t Ms5540WaitOnDoutFall(void) {
 	return(error);
 }
 
-void Ms5540SetSCLK(uint8_t state) {
+static void Ms5540SetSCLK(uint8_t state) {
 	cli();
 	if (state) {
 		ioport_set_pin_high(MS_SCLK);
@@ -259,7 +288,7 @@ void Ms5540SetSCLK(uint8_t state) {
 	sei();
 }
 
-uint8_t Ms5540GetSCLK(void) {
+static uint8_t Ms5540GetSCLK(void) {
 	cli();
 	if (ioport_get_pin_level(MS_SCLK)) {
 		sei();
@@ -270,7 +299,7 @@ uint8_t Ms5540GetSCLK(void) {
 	}
 }
 
-void Ms5540SetDIN(uint8_t state) {
+static void Ms5540SetDIN(uint8_t state) {
 	cli();
 	if (state) {
 		ioport_set_pin_high(MS_DIN);
@@ -280,7 +309,7 @@ void Ms5540SetDIN(uint8_t state) {
 	sei();
 }
 
-uint8_t Ms5540GetDIN(void) {
+static uint8_t Ms5540GetDIN(void) {
 	cli();
 	if (ioport_get_pin_level(MS_DIN))	{
 		sei();
@@ -291,7 +320,7 @@ uint8_t Ms5540GetDIN(void) {
 	}
 }
 
-uint8_t Ms5540GetDOUT(void) {
+static uint8_t Ms5540GetDOUT(void) {
 	cli();
 	if (ioport_get_pin_level(MS_DOUT)){
 		sei();
@@ -302,7 +331,7 @@ uint8_t Ms5540GetDOUT(void) {
 	}
 }
 
-void Ms5540WaitOnePulse(void) {
+static void Ms5540WaitOnePulse(void) {
 	uint8_t i;
 	for (i=0;i<3;i++);
 }

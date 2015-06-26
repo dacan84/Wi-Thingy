@@ -8,7 +8,6 @@
 
 #include "digi_api.h"
 #include "digi_serial.h"
-//TODO: aqui hay cositas que corregir
 
 /* Send XBee packet */
 bool XBeeSendPacket(XBeePacket * const packet) {
@@ -27,6 +26,6 @@ bool XBeeSendPacket(XBeePacket * const packet) {
 	}
 	XBeeSerialSend((0xFF - packet->checksum));
 	// Bugfix: Flush buffer
-	//XBeeSerialSend(NULL);			 //TODO: definir el null
-	//return TRUE;		    //TODO: definir el true
+	XBeeSerialSend(NULL);			
+	return TRUE;		    
 }

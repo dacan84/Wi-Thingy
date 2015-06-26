@@ -130,7 +130,7 @@
       <Value>../HeaderFiles/ntc</Value>
       <Value>../HeaderFiles/h25k5a</Value>
       <Value>../HeaderFiles/sht11</Value>
-      <Value>../HeaderFiles/msb5540b</Value>
+      <Value>../HeaderFiles/ms5540b</Value>
       <Value>../HeaderFiles/bmp085</Value>
       <Value>../HeaderFiles/timers</Value>
       <Value>../SourceFiles</Value>
@@ -138,7 +138,7 @@
       <Value>../SourceFiles/XBee</Value>
       <Value>../SourceFiles/ntc</Value>
       <Value>../SourceFiles/h25k5a</Value>
-      <Value>../SourceFiles/msb5540b</Value>
+      <Value>../SourceFiles/ms5540b</Value>
       <Value>../SourceFiles/bmp085</Value>
       <Value>../SourceFiles/timers</Value>
       <Value>../src/ASF/common/services/ioport</Value>
@@ -166,7 +166,7 @@
       <Value>../HeaderFiles/ntc</Value>
       <Value>../HeaderFiles/h25k5a</Value>
       <Value>../HeaderFiles/sht11</Value>
-      <Value>../HeaderFiles/msb5540b</Value>
+      <Value>../HeaderFiles/ms5540b</Value>
       <Value>../HeaderFiles/bmp085</Value>
       <Value>../HeaderFiles/timers</Value>
       <Value>../SourceFiles</Value>
@@ -175,7 +175,7 @@
       <Value>../SourceFiles/ntc</Value>
       <Value>../SourceFiles/h25k5a</Value>
       <Value>../SourceFiles/sht11</Value>
-      <Value>../SourceFiles/msb5540b</Value>
+      <Value>../SourceFiles/ms5540b</Value>
       <Value>../SourceFiles/bmp085</Value>
       <Value>../SourceFiles/timers</Value>
     </ListValues>

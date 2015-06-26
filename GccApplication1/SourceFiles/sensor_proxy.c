@@ -8,11 +8,11 @@
 #include <ioport.h>
 #include "sensor_proxy.h"
 #include "averaged_adc.h"
-#include "../sht11/sht11.h"
-#include "../bmp085/bmp085.h"
-#include "../ms5540b/ms5540b.h"
-#include "../h25k5a/h25k5a.h"
-#include "../ntc/ntc.h"
+#include "sht11.h"
+#include "bmp085.h"
+#include "ms5540b.h"
+#include "h25k5a.h"
+#include "ntc.h"
 #include <math.h>
 
 static void InternalAnalogSensorPowerCtrlInit(void);
@@ -41,7 +41,7 @@ ShtData shtData;
 uint16_t h25k5aData;
 uint16_t ntcData;
 MsData	msData;
-//BmpData	bmpData;
+BmpData	bmpData;
 
 void SensorProxyInit(void) {
 	Sht11Init();
@@ -49,7 +49,7 @@ void SensorProxyInit(void) {
 	NtcInit();
 	H25k5aInit();
 	Ms5540Init();
-	//	BMP085Init();
+	Bmp085Init();
 }
 
 void MeasureSensors(void) {
@@ -71,7 +71,12 @@ void MeasureSensors(void) {
 	Ms5540Measure(&msData);
 	
 	//BMP085 sequence
-	
+	//Start_Measure Options: Resistro de control.
+	//Pressure 		-- 0x34 -- Ultra Low Power
+	//			 	-- 0x74 -- Standard
+	//			 	-- 0xB4 -- High Resolution
+	//			 	-- 0xF4 -- Ultra High Resolution
+	Bmp085Measure(0x74,&bmpData);
 }
 
 static void InternalAnalogSensorPowerCtrlInit(void){

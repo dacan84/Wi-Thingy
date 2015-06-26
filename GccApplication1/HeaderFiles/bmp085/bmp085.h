@@ -28,15 +28,29 @@ Sensor digital BMP085 -- Presión/Temperatura/Altitud
 
 typedef struct {
 	uint16_t  pressure;
-	uint16_t  temperature;
+	uint8_t  temperature;
 } BmpData;
 
-void Init_BMP085(void);
-void BMP085_Coef_Calib(void);
-void BMP085_Start_Mesure(uint8_t control_data);
-int8_t BMP085_Read_Mesure(uint8_t registro);
-uint16_t BMP085_Read_Mesure_XLSB(uint8_t registro,uint8_t oss);
-void BMP085_Calc(uint8_t temperatura_BMP085, uint16_t presion_BMP085,uint8_t oss);
-void BMP085Update(uint8_t control_register);
+typedef struct {
+	int8_t		AC1;
+	int8_t		AC2;
+	int8_t		AC3;
+	uint8_t  	AC4;
+	uint8_t		AC5;
+	uint8_t		AC6;
+	int8_t		B1;
+	int8_t		B2;
+	int8_t		MB;
+	int8_t		MC;
+	int8_t		MD;
+} BmpCoef;
+
+
+void Bmp085Init(void);
+void Bmp085StartMeasure(uint8_t control_data);
+int8_t Bmp085ReadMeasure(uint8_t registro);
+uint16_t Bmp085ReadMeasureXLSB(uint8_t registro,uint8_t oss);
+void Bmp085Measure(uint8_t control_register, BmpData* data);
+void Bmp085Calculate(uint8_t temperatura_BMP085, uint16_t presion_BMP085,uint8_t oss);
 
 #endif /* BMP085_H_ */

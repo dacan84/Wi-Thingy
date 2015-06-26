@@ -33,35 +33,8 @@ typedef struct {
 Sensor digital presión-temperatura  MS5540b
 ******************************************************************************/
 void  Ms5540Init(void);
-
 void Ms5540Measure(MsData* data);
-
-void Ms5540Calculate(MsData* data);
-
-uint16_t Ms5540ConvertWCoefficients(uint8_t ix, uint16_t W1, uint16_t W2, uint16_t W3,	uint16_t	 W4);
-
-uint16_t Ms5540GetD1Pressure(void);
-
-uint16_t Ms5540GetD2Temperature(void);
-
-uint16_t Ms5540GetWCoefficients(uint8_t index);
-
-void Ms5540Reset(void);
-
-void Ms5540SendLsbFirst(char pattern, char nbr_clock);
-
-uint8_t Ms5540WaitOnDoutFall(void);
-
-void Ms5540SetSCLK(uint8_t state);
-
-uint8_t Ms5540GetSCLK(void);
-
-void Ms5540SetDIN(uint8_t state);
-
-uint8_t Ms5540GetDIN(void);
-
-uint8_t BarometerGetDOUT(void);
-
-void BarometerWaitOnePulse(void);
+void Ms5540Calculate(MsData* data,MsCalculateData* dataCalculated);
+uint16_t Ms5540ConvertWordsToCoefficients(uint8_t ix, uint16_t W1, uint16_t W2, uint16_t W3,	uint16_t	W4);
 
 #endif /* MS5540B_H_ */

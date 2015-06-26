@@ -27,7 +27,7 @@ typedef struct {
 typedef struct {
 	uint16_t  pressureD1;
 	uint16_t  temperatureD2;
-} MsData;
+} MsData;	
 
 /******************************************************************************
 Sensor digital presión-temperatura  MS5540b

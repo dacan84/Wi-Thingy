@@ -25,6 +25,7 @@ extern uint16_t ntcData;
 extern MsData	msData;
 extern BmpData	bmpData;
 extern int8_t	bmpCoef[11];
+extern uint16_t msCoef[6];
 
 void SendMeasures(void) {
 	uint8_t i=0;
@@ -39,6 +40,9 @@ void SendMeasures(void) {
 	PayloadPutWord(&payload, ntcData);
 	PayloadPutWord(&payload, shtData.temperature.i);
 	PayloadPutWord(&payload, shtData.humidity.i);
+	for(i=0;i<sizeof(msCoef);++i){
+		PayloadPutWord(&payload,msCoef[i]);
+	}
 	PayloadPutWord(&payload,msData.pressureD1);
 	PayloadPutWord(&payload,msData.temperatureD2);
 	for(i=0;i<sizeof(bmpCoef);++i){

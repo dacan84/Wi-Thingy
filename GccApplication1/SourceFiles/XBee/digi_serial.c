@@ -10,7 +10,6 @@
 
 // TODO: ajustar pines a la implementacion.
 
-
 /*************************************************************************************
 Comunicación con el XBee
 **************************************************************************************/
@@ -101,5 +100,6 @@ bool XBeeSerialCheckInterrupt(void) {
 }
 
 void XBeeSerialAckInterrupt(void) {
-	//PIR1bits.RC1IF = 0;
+	cli;
+	kPIR1bits.RC1IF = 0;
 }

@@ -34,8 +34,7 @@ static void Ms5540Reset(void);
 bool msbError = FALSE;
 
 uint16_t w[4];
-uint16_t fc[6];
-
+uint16_t msCoef[6];
 MsData msData;
 
 /******************************************************************************
@@ -57,7 +56,7 @@ void  Ms5540Init(void) {
 	}
 	for (i=0; i<6; i++) {
 		//Convertimos las words en coeficientes
-		fc[i] = Ms5540ConvertWordsToCoefficients(i, w[0], w[1], w[2], w[3]);
+		msCoef[i] = Ms5540ConvertWordsToCoefficients(i, w[0], w[1], w[2], w[3]);
 	}																			
 }
 
@@ -79,9 +78,9 @@ void Ms5540Calculate(MsData* data, MsCalculateData* dataCalculated) {//ShtData* 
 	fd1 = (float) data->pressureD1;
 	fd2 = (float) data->temperatureD2;
 
-	dt   =   fd2 - ((8.0 * fc[4]) + 20224.0);
-	off  =   fc[1] * 4.0 + (((fc[3]-512.0)*dt)/4096.0);
-	sens =   24576.0 +  fc[0] + ((fc[2]*dt)/1024.0);
+	dt   =   fd2 - ((8.0 * msCoef[4]) + 20224.0);
+	off  =   msCoef[1] * 4.0 + (((msCoef[3]-512.0)*dt)/4096.0);
+	sens =   24576.0 +  msCoef[0] + ((msCoef[2]*dt)/1024.0);
 	x    =   (( sens * (fd1- 7168.0)) / 16384.0) - off;
 	
 	//TODO: habria que escribir el retorno de del valor del cálculo pero de momento no lo hago. Por que no voy utilizar.
@@ -92,7 +91,7 @@ void Ms5540Calculate(MsData* data, MsCalculateData* dataCalculated) {//ShtData* 
 		dataCalculated->pressure = 0;
 	}
 
-	dataCalculated->temperature	 =  (200.0 +((dt*(fc[5]+50.0))/1024.0));
+	dataCalculated->temperature	 =  (200.0 +((dt*(msCoef[5]+50.0))/1024.0));
 	//Máximo de temperatura 85 ºC
 	if(dataCalculated->temperature > 850.0) {
 		dataCalculated->temperature = 0;  

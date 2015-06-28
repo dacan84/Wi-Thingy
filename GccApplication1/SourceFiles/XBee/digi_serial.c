@@ -8,6 +8,7 @@
 
 #include "digi_serial.h"
 
+
 // TODO: ajustar pines a la implementacion.
 
 /*************************************************************************************
@@ -49,7 +50,9 @@ void DisableUart1RxInterrupt(void) {
 }
 
 void XBeeSerialInit(uint8_t baudrate) {
-
+	ioport_set_pin_dir(RXD, IOPORT_DIR_INPUT);
+	ioport_set_pin_dir(TXD, IOPORT_DIR_OUTPUT);
+	
 	//Ponemos a 0 los flags y errores
 	UCSR1A = 0x00;
 	//BaudRate para 4 MHz y 9600 bps (UBRR0L = 25)
@@ -58,6 +61,7 @@ void XBeeSerialInit(uint8_t baudrate) {
 	//Asincrono (UMSEL = 0),sin paridad (UPM01:0 por defecto 0)
 	//8 bits (UCSZ02:0 = 011) y 1 bit de parada (USBS0 = 0)
 	//Enable R y T.
+	EnableUart1Txd();
 	EnableUart1Rxd();
 	EnableUart1RxInterrupt();
 }
@@ -76,7 +80,7 @@ void XBeeSerialSendArray(uint8_t* values, uint8_t size) {
 }
 
 uint8_t XBeeSerialRead(void) {
-	//return RCREG1;
+	return UDR1;
 }
 
 bool XBeeSerialAvailable(void) {
@@ -101,5 +105,7 @@ bool XBeeSerialCheckInterrupt(void) {
 
 void XBeeSerialAckInterrupt(void) {
 	cli;
-	kPIR1bits.RC1IF = 0;
+	
+	// Me falta implementar estooooooooo.
+	//PIR1bits.RC1IF = 0;
 }

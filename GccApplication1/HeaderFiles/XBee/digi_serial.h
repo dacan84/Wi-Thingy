@@ -10,6 +10,11 @@
 #define DIGI_SERIAL_H_
 
 #include "bsp.h"
+#include <ioport.h>
+
+#define RXD		IOPORT_CREATE_PIN(PORTD, PIND2)
+#define TXD		IOPORT_CREATE_PIN(PORTD, PIND3)
+
 
 void XBeeSerialInit(uint8_t baudrate);
 

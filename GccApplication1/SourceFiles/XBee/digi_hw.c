@@ -7,6 +7,7 @@
 
 #include "digi_api.h"
 #include "digi_serial.h"
+#include <ioport.h>
 
 static uint8_t EUSART_9600 = 25;
 

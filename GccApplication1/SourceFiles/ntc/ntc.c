@@ -9,7 +9,7 @@
 #include "..\ntc/ntc.h"
 
 void NtcInit(void) {
-	AdcInit();
+	AdcReInit();
 }
 
 void NtcMeasure(uint16_t* data) {

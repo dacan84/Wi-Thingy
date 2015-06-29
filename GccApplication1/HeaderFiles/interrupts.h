@@ -13,6 +13,8 @@ void EnableInterrupts (void);
 
 void ClearInterrupt (void);
 
+void ClearExternalInterruptFlag (uint8_t bit);
+
 void EnableExternalInterruptPCINT0 (void);
 
 void DisableExternalInterruptPCINT0 (void);

@@ -24,6 +24,8 @@
 
 void AdcInit(void);
 
+void AdcReInit(void);
+
 void AdcConvert(uint8_t channel, uint16_t* result);
 
  /*************************************************************************************

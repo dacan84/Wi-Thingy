@@ -17,5 +17,4 @@ int main(void)
 	while(1) {
 		sleep_mode();
 	}
-	return 0;
 }

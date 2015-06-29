@@ -6,6 +6,9 @@
  */ 
 
 #include "digi_api.h"
+#include <avr/delay.h>
+#include "bsp.h"
+#include <avr/power.h>
 
 static XBeePacket joinPacket;
 
@@ -13,16 +16,20 @@ static void XBeeCommissioning(uint8_t timesButtonPress);
 static void XBeeSetSleepMode(uint8_t mode);
 
 /*..........................................................................*/
-//TODO: modificar funciones de Delay
 /* Join xbee */
 void XBeeJoin(void) {
+	power_usart1_enable();
+	_delay_us(10);
 	XBeeReset();
+	_delay_ms(100);
 	//Delay10KTCYx(100);
 	// Simulate one press commissioning button
 	XBeeCommissioning(COMMISSIONING_ONE_PRESS);
 //	Delay10KTCYx(100);
+	_delay_ms(100);
 	// Set sleep mode 8
 	XBeeSetSleepMode(DEEP_SLEEP_MODE);
+	power_usart1_disable();
 }
 
 /*..........................................................................*/

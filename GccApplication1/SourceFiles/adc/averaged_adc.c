@@ -37,6 +37,29 @@ void AdcInit(void) {
 	//EN ADMUX REFS1 Y REFS0 NO LOS ESCRIBO, INICIALMENTE DEJO LA REFERENCIA INTERNA.
 	//PARTE MENOS SIGNIFICATIVA ALINEADA A LA DERECHA, ADLAR = 0.
 	//Habilita la conversión A/D.//Habilita interrupciones
+	adc_enable();
+	//TODO: esto no se si realmente hace falta, y si ponerlo aquí o en el ADC calibrate.
+	// aquí o es suficiente con que
+	adc_set_mux(ADC_reset);
+	adc_start_conversion();	 //creo que este estart si que hace falta aquí
+	while (!adc_conversion_is_complete()) {}
+	ADC;
+}	
+
+void AdcReInit(void) {
+	//FIXME: necesario aqui el start?	 //start conversion?
+	//ADCSRA = _BV(ADPS1) | _BV(ADPS0) | _BV(ADSC);
+	adc_set_admux(ADC_MUX_GND | ADC_PRESCALER_DIV8 | ADC_ADJUSTMENT_RIGHT);
+	
+	//Referencia AVCC porque AREF = 0V.
+	adc_set_voltage_reference(ADC_VREF_AVCC);
+	//Digital Input Enable
+	EnableUsedAnalogInputBuffer();
+	//Deshabilita el power reduction del ADC.
+	power_adc_enable();
+	//EN ADMUX REFS1 Y REFS0 NO LOS ESCRIBO, INICIALMENTE DEJO LA REFERENCIA INTERNA.
+	//PARTE MENOS SIGNIFICATIVA ALINEADA A LA DERECHA, ADLAR = 0.
+	//Habilita la conversión A/D.//Habilita interrupciones
 	set_sleep_mode(SLEEP_MODE_ADC);
 	adc_enable();
 	adc_enable_interrupt();

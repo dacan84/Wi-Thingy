@@ -7,10 +7,9 @@
 
 #include "digi_api.h"
 #include "digi_serial.h"
-#include <ioport.h>
+#include "interrupts.h"
 
 static uint8_t EUSART_9600 = 25;
-
 static void XBeeInterruptInit(void);
 
 void XBeeInit(void) {
@@ -19,15 +18,13 @@ void XBeeInit(void) {
 	XBeeJoin();
 }
 
-static void XBeeInterruptInit(void) {
+//Esta función configura la interrupción que genera el XBEE en el uC.
+static void XBeeInterruptInit(void) {	
+	ioport_set_pin_dir(INT0,IOPORT_DIR_INPUT);
 	//// INT0 rising edge mode
 	//INTCON2bits.INTEDG0 = 1;
-	//// Disable pullup
-	//INTCON2bits.RBPU = 0;
 	//// Enable INT0
-	//INTCONbits.INT0IE = 1;
-	//// Clear INT0 flag
-	//INTCONbits.INT0IF = 0;
-	//// Configure RB0 as input
-	//TRISBbits.TRISB0 = 1;
+	EnableExternalInterruptPCINT0();
+	ClearInterrupt();
+	ClearExternalInterruptFlag(INTF0);
 }

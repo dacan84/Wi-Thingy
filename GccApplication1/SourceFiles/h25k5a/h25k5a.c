@@ -11,7 +11,7 @@
 static void H25k5aInitIO(void);
 
 void H25k5aInit(void){
-	AdcInit();
+	AdcReInit();
 }
 
 void H25k5aMeasure(uint16_t* data){

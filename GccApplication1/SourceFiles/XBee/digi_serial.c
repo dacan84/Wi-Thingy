@@ -5,50 +5,20 @@
 *  Author: Diego
 */
 
-
 #include "digi_serial.h"
 
-
-// TODO: ajustar pines a la implementacion.
+static void EnableUart1Txd(void);
+static void DisableUart1Txd(void);
+static void EnableUart1Rxd(void);
+static void DisableUart1Rxd(void); 
+static void EnableUart1TxInterrupt(void); 
+static void DisableUart1TxInterrupt(void); 
+static void EnableUart1RxInterrupt(void);
+static void DisableUart1RxInterrupt(void); 
 
 /*************************************************************************************
 Comunicación con el XBee
 **************************************************************************************/
-
-void EnableUart1Txd(void) {
-	UCSR1B |= _BV(TXEN1);
-}
-
-void DisableUart1Txd(void) {
-	UCSR1B &= ~(_BV(TXEN1));
-}
-
-
-void EnableUart1Rxd(void) {
-	UCSR1B |= _BV(RXEN1);
-}
-
-void DisableUart1Rxd(void) {
-	UCSR1B &= ~(_BV(RXEN1));
-}
-
-void EnableUart1TxInterrupt(void) {
-	UCSR1B |= _BV(RXCIE1);
-}
-
-void DisableUart1TxInterrupt(void) {
-	UCSR1B &= ~(_BV(TXCIE1));
-}
-
-void EnableUart1RxInterrupt(void) {
-	UCSR1B |= _BV(RXCIE1);
-}
-
-
-void DisableUart1RxInterrupt(void) {
-	UCSR1B &= ~(_BV(RXCIE1));
-}
-
 void XBeeSerialInit(uint8_t baudrate) {
 	ioport_set_pin_dir(RXD, IOPORT_DIR_INPUT);
 	ioport_set_pin_dir(TXD, IOPORT_DIR_OUTPUT);
@@ -63,7 +33,6 @@ void XBeeSerialInit(uint8_t baudrate) {
 	//Enable R y T.
 	EnableUart1Txd();
 	EnableUart1Rxd();
-	EnableUart1RxInterrupt();
 }
 
 void XBeeSerialSend(uint8_t value) {
@@ -98,14 +67,44 @@ void XBeeSerialClose(void) {
 	DisableUart1RxInterrupt();
 }
 
+static void EnableUart1Txd(void) {
+	UCSR1B |= _BV(TXEN1);
+}
+
+static void DisableUart1Txd(void) {
+	UCSR1B &= ~(_BV(TXEN1));
+}
+
+static void EnableUart1Rxd(void) {
+	UCSR1B |= _BV(RXEN1);
+}
+
+static void DisableUart1Rxd(void) {
+	UCSR1B &= ~(_BV(RXEN1));
+}
+
+static void EnableUart1TxInterrupt(void) {
+	UCSR1B |= _BV(RXCIE1);
+}
+
+static void DisableUart1TxInterrupt(void) {
+	UCSR1B &= ~(_BV(TXCIE1));
+}
+
+static void EnableUart1RxInterrupt(void) {
+	UCSR1B |= _BV(RXCIE1);
+}
+
+static void DisableUart1RxInterrupt(void) {
+	UCSR1B &= ~(_BV(RXCIE1));
+}
+
 /** Interrupt handler functions */
 bool XBeeSerialCheckInterrupt(void) {
 	return XBeeSerialAvailable();
 }
 
 void XBeeSerialAckInterrupt(void) {
-	cli;
-	
-	// Me falta implementar estooooooooo.
-	//PIR1bits.RC1IF = 0;
+	UCSR1A&=_BV(RXC1);
+	cli();
 }

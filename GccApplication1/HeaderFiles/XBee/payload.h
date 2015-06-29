@@ -25,18 +25,18 @@ struct Payload {
 void PayloadInit(Payload* payload);
 
 /* Add one byte to the list */
-void Payload_putByte(Payload* payload, const uint8_t element);
+void PayloadPutByte(Payload* payload, const uint8_t element);
 
 /* Add one word to the list */
 void PayloadPutWord(Payload* payload, const uint16_t element);
 
 /* Append */
-void Payload_append(Payload* to, const Payload* from);
+void PayloadAppend(Payload* to, const Payload* from);
 
 /* Put a formatted string in ROM */
-void Payload_putString(Payload* payload, const uint8_t* string);
+void PayloadPutString(Payload* payload, const uint8_t* string);
 
 /* Put a formatted string in RAM */
-void Payload_putRAMString(Payload* payload, const uint8_t* string);
+void PayloadPutRAMString(Payload* payload, const uint8_t* string);
 
 #endif /* PAYLOAD_H_ */

@@ -24,7 +24,8 @@ SourceFiles/XBee/digi_hw.d SourceFiles/XBee/digi_hw.o: \
  ../src/ASF/mega/utils/progmem.h \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\pgmspace.h \
  ../src/ASF/common/services/ioport/mega/ioport.h \
- ../HeaderFiles/XBee/payload.h ../HeaderFiles/XBee/digi_serial.h
+ ../HeaderFiles/XBee/payload.h ../HeaderFiles/XBee/digi_serial.h \
+ ../HeaderFiles/interrupts.h
 
 ../HeaderFiles/XBee/digi_api.h:
 
@@ -81,3 +82,5 @@ c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-g
 ../HeaderFiles/XBee/payload.h:
 
 ../HeaderFiles/XBee/digi_serial.h:
+
+../HeaderFiles/interrupts.h:

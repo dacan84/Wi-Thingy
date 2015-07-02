@@ -23,9 +23,9 @@ SourceFiles/bsp.d SourceFiles/bsp.o: ../SourceFiles/bsp.c \
  ../src/ASF/mega/utils/progmem.h \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\pgmspace.h \
  ../src/ASF/common/services/ioport/mega/ioport.h \
+ ../HeaderFiles/adc/averaged_adc.h \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\sleep.h \
- c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\power.h \
- ../HeaderFiles/interrupts.h ../HeaderFiles/adc/averaged_adc.h
+ c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\power.h
 
 ../HeaderFiles/bsp.h:
 
@@ -77,10 +77,8 @@ c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-g
 
 ../src/ASF/common/services/ioport/mega/ioport.h:
 
+../HeaderFiles/adc/averaged_adc.h:
+
 c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\sleep.h:
 
 c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\power.h:
-
-../HeaderFiles/interrupts.h:
-
-../HeaderFiles/adc/averaged_adc.h:

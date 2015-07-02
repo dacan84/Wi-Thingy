@@ -5,6 +5,7 @@
 *  Author: Diego
 */
 
+#include "bsp.h"
 #include <avr/io.h>
 #include <stdbool.h>
 #include <avr/sleep.h>
@@ -14,7 +15,6 @@
 #include <ioport.h>
 #include "ms5540b.h"
 #include "timer0.h"
-#include "bsp.h"
 
 static uint16_t Ms5540Get16(void);
 static void Ms5540WaitOnePulse(void);
@@ -29,7 +29,6 @@ static uint16_t Ms5540GetD1Pressure(void);
 static uint16_t Ms5540GetD2Temperature(void);
 static uint16_t Ms5540GetWordCoefficients(uint8_t index);
 static void Ms5540Reset(void);
-
 
 bool msbError = FALSE;
 

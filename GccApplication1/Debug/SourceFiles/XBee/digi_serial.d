@@ -23,7 +23,8 @@ SourceFiles/XBee/digi_serial.d SourceFiles/XBee/digi_serial.o: \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
  ../src/ASF/mega/utils/progmem.h \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\pgmspace.h \
- ../src/ASF/common/services/ioport/mega/ioport.h
+ ../src/ASF/common/services/ioport/mega/ioport.h \
+ c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\power.h
 
 ../HeaderFiles/XBee/digi_serial.h:
 
@@ -76,3 +77,5 @@ c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-g
 c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\pgmspace.h:
 
 ../src/ASF/common/services/ioport/mega/ioport.h:
+
+c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\power.h:

@@ -16,7 +16,7 @@
 #include <avr/common.h>
 
 //Frecuencia para delays
-#define F_CPU 4000000UL
+#define F_CPU 4000000U
 
 #define TRUE  1
 #define FALSE 0

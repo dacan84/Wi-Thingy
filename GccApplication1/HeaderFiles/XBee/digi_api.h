@@ -56,7 +56,7 @@
 #define PACKET_BROADCAST                        0x02
 /*..........................................................................*/
 #define COMMISSIONING_ONE_PRESS     1
-#define DEEP_SLEEP_MODE             8
+#define XBEE_DEEP_SLEEP_MODE        8
 
 
 /*..........................................................................*/

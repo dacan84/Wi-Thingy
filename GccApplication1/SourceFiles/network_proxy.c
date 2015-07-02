@@ -1,9 +1,9 @@
 /*
- * network_proxy.c
- *
- * Created: 15/06/2015 13:47:39
- *  Author: Diego
- */ 
+* network_proxy.c
+*
+* Created: 15/06/2015 13:47:39
+*  Author: Diego
+*/
 
 #include "network_proxy.h"
 #include "payload.h"
@@ -15,7 +15,7 @@
 #include "h25k5a.h"
 #include "ntc.h"
 
-const uint8_t COORDINATOR_ADDRESS[8] = {0x00, 0x13, 0xA2, 0x00, 0x40, 0x2C, 0xF1, 0x5B};
+const uint8_t COORDINATOR_ADDRESS[8] = {0x00, 0x13, 0xA2, 0x00, 0x40, 0x6B, 0x57, 0x5E};
 const uint8_t SENSORS[] = {H25K5A_ID, NTC_ID}; //SHT_ID, MS_ID, BMP085_ID};
 const uint8_t BROADCAST_RADIUS = 0x00;
 const uint8_t TRANSMIT_OPTIONS = 0x00;
@@ -28,10 +28,10 @@ extern BmpData	bmpData;
 extern int8_t	bmpCoef[11];
 extern uint16_t msCoef[6];
 
-bool NetworkAwake(void)	{		
-	if ((ioport_get_pin_level(XBEE_INT_LEVEL)==IOPORT_PIN_LEVEL_HIGH) && ((EIFR&=INTF0) && (PCICR &= _BV(PCIE0)) && (PCMSK0 &= _BV(PCINT0)))) {
+bool NetworkAwake(void)	{
+	if ((ioport_get_pin_level(XBEE_INT_LEVEL)==IOPORT_PIN_LEVEL_HIGH) && ((EIFR&=INTF0) && (ExtenxalInterruptPCINT0GetStatus()) && (ExtenxalInterruptPCINT0GetMASK()))) {
 		return FALSE;
-	} else  {
+		} else  {
 		return TRUE;
 	}
 }
@@ -54,12 +54,12 @@ void SendMeasures(void) {
 	//PayloadPutWord(&payload, shtData.temperature.i);
 	//PayloadPutWord(&payload, shtData.humidity.i);
 	//for(i=0;i<sizeof(msCoef);++i){
-		//PayloadPutWord(&payload,msCoef[i]);
+	//PayloadPutWord(&payload,msCoef[i]);
 	//}
 	//PayloadPutWord(&payload,msData.pressureD1);
 	//PayloadPutWord(&payload,msData.temperatureD2);
 	//for(i=0;i<sizeof(bmpCoef);++i){
-		//PayloadPutByte(&payload,bmpCoef[i]);
+	//PayloadPutByte(&payload,bmpCoef[i]);
 	//}
 	//PayloadPutByte(&payload,bmpData.temperature);
 	//PayloadPutWord(&payload,bmpData.pressure);

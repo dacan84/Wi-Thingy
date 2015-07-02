@@ -7,7 +7,7 @@
 
 
 #include "../sht11/sht11.h"
-#include <avr/delay.h>
+#include <util/delay.h>
 
 
 /**

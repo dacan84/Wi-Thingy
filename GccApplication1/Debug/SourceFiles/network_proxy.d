@@ -28,7 +28,7 @@ SourceFiles/network_proxy.d SourceFiles/network_proxy.o: \
  ../HeaderFiles/sht11/sht11.h ../HeaderFiles/interrupts.h \
  ../HeaderFiles/bmp085/bmp085.h ../HeaderFiles/ms5540b/ms5540b.h \
  ../HeaderFiles/h25k5a/h25k5a.h ../HeaderFiles/adc/averaged_adc.h \
- ../HeaderFiles/ntc/ntc.h
+ ../HeaderFiles/ntc/ntc.h ../HeaderFiles/adc/averaged_adc.h
 
 ../HeaderFiles/network_proxy.h:
 
@@ -101,3 +101,5 @@ c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-g
 ../HeaderFiles/adc/averaged_adc.h:
 
 ../HeaderFiles/ntc/ntc.h:
+
+../HeaderFiles/adc/averaged_adc.h:

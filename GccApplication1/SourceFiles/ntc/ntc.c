@@ -6,12 +6,21 @@
 */
 
 #include "averaged_adc.h"
-#include "..\ntc/ntc.h"
+#include "ntc.h"
+#include <ioport.h>
+
+static void NtcInitIO(void);
 
 void NtcInit(void) {
+	NtcInitIO();
 	AdcReInit();
 }
 
 void NtcMeasure(uint16_t* data) {
 	AdcConvert(NTC_AN_CH, data);
 }
+
+static void NtcInitIO(void){
+	ioport_set_pin_dir(ADC_0_PIN,IOPORT_DIR_INPUT);
+}
+

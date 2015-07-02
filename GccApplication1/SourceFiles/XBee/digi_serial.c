@@ -6,11 +6,13 @@
 */
 
 #include "digi_serial.h"
+#include <avr/power.h>
 
-static void EnableUart1Txd(void);
-static void DisableUart1Txd(void);
-static void EnableUart1Rxd(void);
-static void DisableUart1Rxd(void); 
+static uint8_t EUSART_9600 = 25;
+static void EnableUsart1Txd(void);
+static void DisableUsart1Txd(void);
+static void EnableUsart1Rxd(void);
+static void DisableUsart1Rxd(void);
 static void EnableUart1TxInterrupt(void); 
 static void DisableUart1TxInterrupt(void); 
 static void EnableUart1RxInterrupt(void);
@@ -30,14 +32,12 @@ void XBeeSerialInit(uint8_t baudrate) {
 	UBRR1L = baudrate;
 	//Asincrono (UMSEL = 0),sin paridad (UPM01:0 por defecto 0)
 	//8 bits (UCSZ02:0 = 011) y 1 bit de parada (USBS0 = 0)
-	//Enable R y T.
-	EnableUart1Txd();
-	EnableUart1Rxd();
 }
 
 void XBeeSerialSend(uint8_t value) {
 	while(!(UCSR1A & (1<<UDRE1))){} //con un 1 esta preparado para escribir
 	UDR1 = value;
+	while(!(UCSR1A & (1<<TXC1))){}
 }
 
 void XBeeSerialSendArray(uint8_t* values, uint8_t size) {
@@ -45,7 +45,7 @@ void XBeeSerialSendArray(uint8_t* values, uint8_t size) {
 	while (i < size) {
 		XBeeSerialSend(values[i++]);
 	}
-	XBeeSerialSend(NULL);
+	//XBeeSerialSend(NULL);
 }
 
 uint8_t XBeeSerialRead(void) {
@@ -61,25 +61,38 @@ bool XBeeSerialAvailable(void) {
 }
 
 void XBeeSerialClose(void) {
-	DisableUart1Txd();
-	DisableUart1Rxd();
+	DisableUsart1Txd();
+	DisableUsart1Rxd();
 	DisableUart1TxInterrupt();
 	DisableUart1RxInterrupt();
 }
 
-static void EnableUart1Txd(void) {
+void Usart1PowerONandEnable (void) {
+	power_usart1_enable();
+	XBeeSerialInit(EUSART_9600);
+	EnableUsart1Txd();
+	EnableUsart1Rxd();
+}
+
+void Usart1PowerOFFandDisable (void) {
+	DisableUsart1Txd();
+	DisableUsart1Rxd();
+	power_usart1_disable();
+}
+
+static void EnableUsart1Txd(void) {
 	UCSR1B |= _BV(TXEN1);
 }
 
-static void DisableUart1Txd(void) {
+static void DisableUsart1Txd(void) {
 	UCSR1B &= ~(_BV(TXEN1));
 }
 
-static void EnableUart1Rxd(void) {
+static void EnableUsart1Rxd(void) {
 	UCSR1B |= _BV(RXEN1);
 }
 
-static void DisableUart1Rxd(void) {
+static void DisableUsart1Rxd(void) {
 	UCSR1B &= ~(_BV(RXEN1));
 }
 

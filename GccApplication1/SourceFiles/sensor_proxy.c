@@ -46,7 +46,7 @@ BmpData	bmpData;
 void SensorProxyInit(void) {
 //	Sht11Init();
 	InternalAnalogSensorPowerCtrlInit();
-	AdcInit();//Inicializa el ADC para ambos sensores ya que la funcione AdcReInit no se puede ejecutar aqui debido a las ISR y a que estas no se encuentran activadas.
+	AdcInit();
 //	Ms5540Init();
 //	Bmp085Init();
 }
@@ -65,7 +65,6 @@ void MeasureSensors(void) {
 	// SHT11
 /*	Sht11Measure(&shtData);
 
-	//TODO: implementar estos métodos.
 	//MSB5540b sequence
 	Ms5540Measure(&msData);
 	

@@ -2,7 +2,7 @@ SourceFiles/ntc/ntc.d SourceFiles/ntc/ntc.o: ../SourceFiles/ntc/ntc.c \
  ../HeaderFiles/adc/averaged_adc.h \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\lib\gcc\avr\4.8.1\include\stdint.h \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\stdint.h \
- ../HeaderFiles/adc/..\ntc/ntc.h ../HeaderFiles/bsp.h \
+ ../HeaderFiles/ntc/ntc.h ../HeaderFiles/bsp.h \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -23,8 +23,7 @@ SourceFiles/ntc/ntc.d SourceFiles/ntc/ntc.o: ../SourceFiles/ntc/ntc.c \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
  ../src/ASF/mega/utils/progmem.h \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\pgmspace.h \
- ../src/ASF/common/services/ioport/mega/ioport.h \
- ../HeaderFiles/adc/averaged_adc.h
+ ../src/ASF/common/services/ioport/mega/ioport.h
 
 ../HeaderFiles/adc/averaged_adc.h:
 
@@ -32,7 +31,7 @@ c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-g
 
 c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\stdint.h:
 
-../HeaderFiles/adc/..\ntc/ntc.h:
+../HeaderFiles/ntc/ntc.h:
 
 ../HeaderFiles/bsp.h:
 
@@ -79,5 +78,3 @@ c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-g
 c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\pgmspace.h:
 
 ../src/ASF/common/services/ioport/mega/ioport.h:
-
-../HeaderFiles/adc/averaged_adc.h:

@@ -12,7 +12,8 @@
 #include "bsp.h"
 #include  "adc/averaged_adc.h"
 
-#define H25K5A_AN_CH   ADC_1
+#define H25K5A_AN_CH	ADC_1
+#define ADC_1_PIN		IOPORT_CREATE_PIN(PORTF,PINF1)
 
 void H25k5aInit(void);
 

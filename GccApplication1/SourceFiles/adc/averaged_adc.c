@@ -17,60 +17,34 @@
 
 static void AdcCalibrate(void);
 static uint16_t AdcReadValue(void);
+static void AdcOpen(void);
 static void AdcClose (void); 
 
 
 /**
-* Configura el ADC
+* ADC config & Reset conversión to neglect noise
 */
 void AdcInit(void) {
-	//FIXME: necesario aqui el start?	 //start conversion?
-	//ADCSRA = _BV(ADPS1) | _BV(ADPS0) | _BV(ADSC);
-	adc_set_admux(ADC_MUX_GND | ADC_PRESCALER_DIV8 | ADC_ADJUSTMENT_RIGHT);
 	
-	//Referencia AVCC porque AREF = 0V.
-	adc_set_voltage_reference(ADC_VREF_AVCC);
-	//Digital Input Enable
-	EnableUsedAnalogInputBuffer();
-	//Deshabilita el power reduction del ADC.
-	 power_adc_enable();
-	//EN ADMUX REFS1 Y REFS0 NO LOS ESCRIBO, INICIALMENTE DEJO LA REFERENCIA INTERNA.
-	//PARTE MENOS SIGNIFICATIVA ALINEADA A LA DERECHA, ADLAR = 0.
-	//Habilita la conversión A/D.//Habilita interrupciones
-	adc_enable();
-	//TODO: esto no se si realmente hace falta, y si ponerlo aquí o en el ADC calibrate.
-	// aquí o es suficiente con que
-	adc_set_mux(ADC_reset);
-	adc_start_conversion();	 //creo que este estart si que hace falta aquí
-	while (!adc_conversion_is_complete()) {}
-	ADC;
-}	
-
-void AdcReInit(void) {
-	//FIXME: necesario aqui el start?	 //start conversion?
-	//ADCSRA = _BV(ADPS1) | _BV(ADPS0) | _BV(ADSC);
-	adc_set_admux(ADC_MUX_GND | ADC_PRESCALER_DIV8 | ADC_ADJUSTMENT_RIGHT);
-	
-	//Referencia AVCC porque AREF = 0V.
-	adc_set_voltage_reference(ADC_VREF_AVCC);
-	//Digital Input Enable
-	EnableUsedAnalogInputBuffer();
 	//Deshabilita el power reduction del ADC.
 	power_adc_enable();
-	//EN ADMUX REFS1 Y REFS0 NO LOS ESCRIBO, INICIALMENTE DEJO LA REFERENCIA INTERNA.
-	//PARTE MENOS SIGNIFICATIVA ALINEADA A LA DERECHA, ADLAR = 0.
-	//Habilita la conversión A/D.//Habilita interrupciones
-	set_sleep_mode(SLEEP_MODE_ADC);
+	//Digital Input Enable
+	EnableUsedAnalogInputBuffer();
 	adc_enable();
-	adc_enable_interrupt();
 	
-	//TODO: esto no se si realmente hace falta, y si ponerlo aquí o en el ADC calibrate.
-	// aquí o es suficiente con que
-	adc_set_mux(ADC_reset);
-	adc_start_conversion();	 //creo que este estart si que hace falta aquí
-	sleep_mode();
+	adc_init(ADC_PRESCALER_DIV8);
+	adc_set_admux(ADC_ADJUSTMENT_RIGHT | ADC_reset |ADC_VREF_AVCC);
+	//TODO, Dejo la función de abajo por si la aqui puesta no funciona. 
+	//adc_set_mux(ADC_reset);
+	
+	adc_start_conversion();	
+	while (!adc_conversion_is_complete()) {}
 	ADC;
-}
+	DisableUsedAnalogInputBuffer();	
+	adc_disable();
+	//Habilitabilita el power reduction del ADC.
+	power_adc_disable();
+}	
 
 /**
 * Devuelve una muestra promedio de AVERAGE_FACTOR muestras.
@@ -81,9 +55,10 @@ void AdcReInit(void) {
 void AdcConvert(uint8_t channel, uint16_t* result) {
 	uint32_t tmp = 0;
 	uint8_t i = AVERAGE_FACTOR;
-	
-	adc_set_mux(channel);	
+
+	AdcOpen();
 	AdcCalibrate();
+	adc_set_mux(channel);
 	while (i--) {
 		ADC = 0;
 		//Referencia con AVCC
@@ -92,6 +67,7 @@ void AdcConvert(uint8_t channel, uint16_t* result) {
 		adc_start_conversion();
 		sleep_mode();
 		tmp += AdcReadValue();	  //la funcion de lectura no sirve.
+		ClearAdcInterrupt();
 	}
 	*result = (uint16_t) tmp >> DIV_AVERAGE;
 	AdcClose();
@@ -101,12 +77,38 @@ void AdcConvert(uint8_t channel, uint16_t* result) {
 * Realiza una conversión dummy para compensar el ruido de las entradas.
 */
 static void AdcCalibrate(void) {
+		adc_set_mux(ADC_reset);
 		//Referencia con AVCC
 		adc_set_voltage_reference(ADC_VREF_AVCC);
 		//Start/Single conversion
 		adc_start_conversion();
 		sleep_mode();
 		ADC;
+		ClearAdcInterrupt();
+}
+
+static void AdcOpen(void) {
+	set_sleep_mode(SLEEP_MODE_ADC);
+	//Digital Input Enable
+	power_adc_enable();
+	EnableUsedAnalogInputBuffer();
+	adc_enable();
+	adc_enable_interrupt();
+}
+
+static void AdcClose (void) {
+	//Deshabilita la conversión A/D y la interrupción de fin de conversión.
+	adc_disable_interrupt();
+	//Digital Input Disable
+	DisableUsedAnalogInputBuffer();
+	adc_disable();
+	//Habilita Power Reduction ADC.
+	power_adc_disable();
+	set_sleep_mode(SLEEP_MODE_IDLE);
+}
+
+void ClearAdcInterrupt(void) {
+	ADCSRA &= ~(_BV(ADIF));
 }
 
 /**
@@ -114,17 +116,6 @@ static void AdcCalibrate(void) {
 */
 static uint16_t AdcReadValue(void) {
 	return ADC;
-}
-
-static void AdcClose (void) {
-	//Deshabilita la conversión A/D y la interrupción de fin de conversión.
-	adc_disable();
-	adc_disable_interrupt();
-	//Habilita Power Reduction ADC.
-	power_adc_disable();
-	//Digital Input Disable
-	DisableUsedAnalogInputBuffer();
-	set_sleep_mode(SLEEP_MODE_IDLE);
 }
 
 /*************************************************************************************

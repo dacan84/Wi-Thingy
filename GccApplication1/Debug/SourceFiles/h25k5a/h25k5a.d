@@ -22,9 +22,9 @@ SourceFiles/h25k5a/h25k5a.d SourceFiles/h25k5a/h25k5a.o: \
  ../src/ASF/mega/utils/progmem.h \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\pgmspace.h \
  ../src/ASF/mega/drivers/adc/adc_megaxx0_1_4.h \
- ../HeaderFiles/h25k5a/h25k5a.h ../HeaderFiles/bsp.h \
  ../src/ASF/common/services/ioport/ioport.h \
  ../src/ASF/common/services/ioport/mega/ioport.h \
+ ../HeaderFiles/h25k5a/h25k5a.h ../HeaderFiles/bsp.h \
  ../HeaderFiles/adc/averaged_adc.h
 
 ../src/ASF/mega/drivers/adc/adc.h:
@@ -75,12 +75,12 @@ c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-g
 
 ../src/ASF/mega/drivers/adc/adc_megaxx0_1_4.h:
 
-../HeaderFiles/h25k5a/h25k5a.h:
-
-../HeaderFiles/bsp.h:
-
 ../src/ASF/common/services/ioport/ioport.h:
 
 ../src/ASF/common/services/ioport/mega/ioport.h:
+
+../HeaderFiles/h25k5a/h25k5a.h:
+
+../HeaderFiles/bsp.h:
 
 ../HeaderFiles/adc/averaged_adc.h:

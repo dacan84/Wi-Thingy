@@ -29,11 +29,7 @@ extern int8_t	bmpCoef[11];
 extern uint16_t msCoef[6];
 
 bool NetworkAwake(void)	{
-	if ((ioport_get_pin_level(XBEE_INT_LEVEL)==IOPORT_PIN_LEVEL_HIGH) && (EIFR&=INTF0)) {
-		return FALSE;
-		} else  {
-		return TRUE;
-	}
+	return ioport_get_pin_level(XBEE_INT_LEVEL);
 }
 
 void ClearNetworkInterrupt(void) {

@@ -11,8 +11,8 @@ Programa principal
 int main(void) {
 	DisableGeneralInterrupts();
 	BspInit();
-	SensorProxyInit();
 	XBeeInit();
+	SensorProxyInit();
 	EnableGeneralInterrupts();
    
 	while(1) {

@@ -12,13 +12,14 @@
 static void XBeeInterruptInit(void);
 
 void XBeeInit(void) {
-	XBeeInterruptInit();
 	XBeeJoin();
+	XBeeInterruptInit();
 }
 
 //Esta función configura la interrupción que genera el XBEE en el uC.
 static void XBeeInterruptInit(void) {	
 	ioport_set_pin_dir(XBEE_PCINT0,IOPORT_DIR_INPUT);
+	ioport_set_pin_mode(XBEE_PCINT0,IOPORT_MODE_PULLDOWN);
 	EnableExternalInterruptPCINT0();
 	ClearExternalInterruptFlag(INTF0);
 }

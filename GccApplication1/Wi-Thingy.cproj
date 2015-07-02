@@ -78,10 +78,22 @@
         <InterfaceName>JTAG</InterfaceName>
       </ToolOptions>
       <ToolType>com.atmel.avrdbg.tool.jtagicemkii</ToolType>
-      <ToolNumber>00B000004CD9</ToolNumber>
+      <ToolNumber>00B000004CBD</ToolNumber>
       <ToolName>JTAGICE mkII</ToolName>
     </com_atmel_avrdbg_tool_jtagicemkii>
     <avrtoolinterface>JTAG</avrtoolinterface>
+    <com_atmel_avrdbg_tool_simulator>
+      <ToolOptions xmlns="">
+        <InterfaceProperties>
+        </InterfaceProperties>
+        <InterfaceName>
+        </InterfaceName>
+      </ToolOptions>
+      <ToolType xmlns="">com.atmel.avrdbg.tool.simulator</ToolType>
+      <ToolNumber xmlns="">
+      </ToolNumber>
+      <ToolName xmlns="">Simulator</ToolName>
+    </com_atmel_avrdbg_tool_simulator>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>

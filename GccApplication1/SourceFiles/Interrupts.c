@@ -10,11 +10,12 @@
 #include "sensor_proxy.h"
 #include "network_proxy.h"
 #include "digi_api.h"
+#include "digi_serial.h"
 #include <avr/interrupt.h>
 #include <avr/sleep.h>
 #include <avr/power.h>
 #include <util/delay.h>
-
+bool x = false;
 void EnableGeneralInterrupts(void) {
 	sei();
 }
@@ -48,25 +49,28 @@ void ClearExternalInterruptFlag (uint8_t bit) {
 INTERRUPCIÓN PRINCIPAL
 ******************************************************************/
 ISR (PCINT0_vect) {
+
+	x=NetworkAwake();
 	//DisableGeneralInterrupts();
-	DisableExternalInterruptPCINT0();
-	if (NetworkAwake()){
-		ClearNetworkInterrupt();
+	
+	//DisableExternalInterruptPCINT0();
+	if (x){
+		
+		//ClearNetworkInterrupt();
 		EnableGeneralInterrupts();
-		//Metodo de sleep para las medidas de sensores
-		set_sleep_mode(SLEEP_MODE_IDLE);
-		//Habilitamos interrupciones para los sensores
+		//set_sleep_mode(SLEEP_MODE_IDLE);
 		// Gather measurements
 		MeasureSensors();
-		power_usart1_enable();
+		Usart1PowerONandEnable();
 		_delay_ms(1);
 		// Send measurements
 		SendMeasures();
-		power_usart1_disable();		
+		Usart1PowerOFFandDisable();		
 	}
-	//Prueba sin ack's
+	
 	set_sleep_mode(SLEEP_MODE_PWR_DOWN);
-	ClearNetworkInterrupt();
-	EnableExternalInterruptPCINT0();
+	
+	//EnableExternalInterruptPCINT0();
 	EnableGeneralInterrupts();
+	//ClearNetworkInterrupt();
 }

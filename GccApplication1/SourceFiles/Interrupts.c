@@ -38,25 +38,7 @@ void DisableExternalInterruptPCINT0(void)  {
 	PCICR &= ~(_BV(PCIE0));
 	PCMSK0 &= ~(_BV(PCINT0));
 }
-bool ExtenxalInterruptPCINT0GetStatus (void){
-		if (PCICR &= _BV(PCIE0)){
-			return true;
-		} else {
-		return false;
-		}
-}
 
-bool ExtenxalInterruptPCINT0GetMASK(void){
-		if (PCMSK0 &= _BV(PCINT0)){
-			return true;
-		} else {
-		return false;
-		}
-}
-//FOR CLEAR GENERIC FLAG USE THIS STRUCTURE
-//void ClearInterruptFlag (uint8_t bit) {
-	//EIFR&=_BV(bit);
-//}
 
 void ClearExternalInterruptFlag (uint8_t bit) {
 	EIFR &= ~(_BV(bit));
@@ -66,15 +48,15 @@ void ClearExternalInterruptFlag (uint8_t bit) {
 INTERRUPCIÓN PRINCIPAL
 ******************************************************************/
 ISR (PCINT0_vect) {
-	DisableGeneralInterrupts();
+	//DisableGeneralInterrupts();
 	DisableExternalInterruptPCINT0();
 	if (NetworkAwake()){
 		ClearNetworkInterrupt();
+		EnableGeneralInterrupts();
 		//Metodo de sleep para las medidas de sensores
 		set_sleep_mode(SLEEP_MODE_IDLE);
 		//Habilitamos interrupciones para los sensores
 		// Gather measurements
-
 		MeasureSensors();
 		power_usart1_enable();
 		_delay_ms(1);
@@ -84,6 +66,7 @@ ISR (PCINT0_vect) {
 	}
 	//Prueba sin ack's
 	set_sleep_mode(SLEEP_MODE_PWR_DOWN);
+	ClearNetworkInterrupt();
 	EnableExternalInterruptPCINT0();
 	EnableGeneralInterrupts();
 }

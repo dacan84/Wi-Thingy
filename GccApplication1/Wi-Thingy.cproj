@@ -78,7 +78,7 @@
         <InterfaceName>JTAG</InterfaceName>
       </ToolOptions>
       <ToolType>com.atmel.avrdbg.tool.jtagicemkii</ToolType>
-      <ToolNumber>00B000004CBD</ToolNumber>
+      <ToolNumber>00B000004CD9</ToolNumber>
       <ToolName>JTAGICE mkII</ToolName>
     </com_atmel_avrdbg_tool_jtagicemkii>
     <avrtoolinterface>JTAG</avrtoolinterface>

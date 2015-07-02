@@ -88,12 +88,13 @@ static void AdcCalibrate(void) {
 }
 
 static void AdcOpen(void) {
-	set_sleep_mode(SLEEP_MODE_ADC);
 	//Digital Input Enable
 	power_adc_enable();
 	EnableUsedAnalogInputBuffer();
 	adc_enable();
+	set_sleep_mode(SLEEP_MODE_ADC);
 	adc_enable_interrupt();
+	ClearAdcInterrupt();
 }
 
 static void AdcClose (void) {

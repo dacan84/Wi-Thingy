@@ -11,11 +11,11 @@ Programa principal
 int main(void) {
 	DisableGeneralInterrupts();
 	BspInit();
-	XBeeInit();
 	SensorProxyInit();
-	//EnableGeneralInterrupts();
+	XBeeInit();
+	EnableGeneralInterrupts();
    
 	while(1) {
-		//sleep_mode();
+		sleep_mode();
 	}
 }

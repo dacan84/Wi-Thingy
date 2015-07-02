@@ -28,6 +28,8 @@ void AdcReInit(void);
 
 void AdcConvert(uint8_t channel, uint16_t* result);
 
+void ClearAdcInterrupt(void);
+
  /*************************************************************************************
  Deshabilitar los input buffer de los analogicos
  **************************************************************************************/

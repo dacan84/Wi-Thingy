@@ -19,10 +19,6 @@ void XBeeInit(void) {
 //Esta función configura la interrupción que genera el XBEE en el uC.
 static void XBeeInterruptInit(void) {	
 	ioport_set_pin_dir(XBEE_PCINT0,IOPORT_DIR_INPUT);
-	//// INT0 rising edge mode
-	//INTCON2bits.INTEDG0 = 1;
-	//// Enable INT0
-	//EnableExternalInterruptPCINT0();
-	//ClearInterrupt();
-	//ClearExternalInterruptFlag(INTF0);
+	EnableExternalInterruptPCINT0();
+	ClearExternalInterruptFlag(INTF0);
 }

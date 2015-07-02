@@ -19,8 +19,4 @@ void EnableExternalInterruptPCINT0 (void);
 
 void DisableExternalInterruptPCINT0 (void);
 
-bool ExtenxalInterruptPCINT0GetStatus (void);
-
-bool ExtenxalInterruptPCINT0GetMASK(void);
-
 #endif /* INTERRUPTS_H_ */

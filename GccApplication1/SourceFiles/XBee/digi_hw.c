@@ -8,12 +8,18 @@
 #include "digi_api.h"
 #include "digi_serial.h"
 #include "interrupts.h"
+#include <avr/power.h>
 
+static uint8_t EUSART_9600 = 25;
 static void XBeeInterruptInit(void);
 
 void XBeeInit(void) {
+	power_usart1_enable();
+	XBeeSerialInit(EUSART_9600);
+	
 	XBeeJoin();
 	XBeeInterruptInit();
+	//power_usart1_disable();
 }
 
 //Esta función configura la interrupción que genera el XBEE en el uC.

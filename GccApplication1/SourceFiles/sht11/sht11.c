@@ -6,7 +6,7 @@
  */ 
 
 
-#include "../sht11/sht11.h"
+#include "sht11.h"
 #include <util/delay.h>
 
 

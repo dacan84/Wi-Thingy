@@ -44,10 +44,11 @@ MsData	msData;
 BmpData	bmpData;
 
 void SensorProxyInit(void) {
-//	Sht11Init();
+
 	InternalAnalogSensorPowerCtrlInit();
 	AdcInit();
-//	Ms5540Init();
+	Sht11Init();
+	Ms5540Init();
 //	Bmp085Init();
 }
 
@@ -55,19 +56,20 @@ void MeasureSensors(void) {
 	
 	// Analog Sensor Sequence
 	PowerUpInternalAnalogSensor();
+	//ntc
+	NtcMeasure(&ntcData);	
 	// h25k5a;
 	H25k5aMeasure(&h25k5aData);
-	//ntc
-	NtcMeasure(&ntcData);
 	PowerDownInternalAnalogSensor();
 	
 	// Digital Sensor Sequence
 	// SHT11
-/*	Sht11Measure(&shtData);
+	Sht11Measure(&shtData);
 
 	//MSB5540b sequence
 	Ms5540Measure(&msData);
 	
+	/*
 	//BMP085 sequence
 	//Start_Measure Options: Resistro de control.
 	//Pressure 		-- 0x34 -- Ultra Low Power
@@ -79,14 +81,17 @@ void MeasureSensors(void) {
 
 static void InternalAnalogSensorPowerCtrlInit(void){
 	ioport_set_pin_dir(INTERNAL_ANALOG_SENSOR_SUPPLY,IOPORT_DIR_OUTPUT);
+	ioport_set_pin_low(INTERNAL_ANALOG_SENSOR_SUPPLY);
 }
 
 static void ExternalAnalogSensorPowerCtrlInit(void){
 	ioport_set_pin_dir(EXTERNAL_ANALOG_SENSOR_SUPPLY,IOPORT_DIR_OUTPUT);
+	ioport_set_pin_low(EXTERNAL_ANALOG_SENSOR_SUPPLY);
 }
 
 static void	VFCPowerCtrlInit(void){
 	ioport_set_pin_dir(VFC_SUPPLY,IOPORT_DIR_OUTPUT);
+	ioport_set_pin_low(VFC_SUPPLY);
 }
 
 static void PowerUpInternalAnalogSensor(void){

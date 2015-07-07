@@ -26,6 +26,6 @@ bool XBeeSendPacket(XBeePacket * const packet) {
 	}
 	XBeeSerialSend((0xFF - packet->checksum));
 	// Bugfix: Flush buffer
-	XBeeSerialSend(NULL);			
+	//XBeeSerialSend(NULL);			
 	return TRUE;		    
 }

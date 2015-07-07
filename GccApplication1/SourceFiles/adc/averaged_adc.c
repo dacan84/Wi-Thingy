@@ -35,15 +35,15 @@ void AdcInit(void) {
 	adc_init(ADC_PRESCALER_DIV8);
 	adc_set_admux(ADC_ADJUSTMENT_RIGHT | ADC_reset |ADC_VREF_AVCC);
 	//TODO, Dejo la función de abajo por si la aqui puesta no funciona. 
-	//adc_set_mux(ADC_reset);
+	adc_set_mux(ADC_reset);
 	
 	adc_start_conversion();	
 	while (!adc_conversion_is_complete()) {}
 	ADC;
-	DisableUsedAnalogInputBuffer();	
-	adc_disable();
+	//DisableUsedAnalogInputBuffer();	
+	//adc_disable();
 	//Habilitabilita el power reduction del ADC.
-	power_adc_disable();
+	//power_adc_disable();
 }	
 
 /**
@@ -55,19 +55,26 @@ void AdcInit(void) {
 void AdcConvert(uint8_t channel, uint16_t* result) {
 	uint32_t tmp = 0;
 	uint8_t i = AVERAGE_FACTOR;
-
 	AdcOpen();
-	AdcCalibrate();
+	
+	adc_init(ADC_PRESCALER_DIV8);
+	adc_set_admux(ADC_ADJUSTMENT_RIGHT | ADC_reset |ADC_VREF_AVCC);
+	//TODO, Dejo la función de abajo por si la aqui puesta no funciona. 
+	//adc_set_mux(ADC_reset);
+	
+	//AdcCalibrate();
+	//Referencia con AVCC
+	adc_set_voltage_reference(ADC_VREF_AVCC);
+	//Elegimos convertidor AD
 	adc_set_mux(channel);
 	while (i--) {
 		ADC = 0;
-		//Referencia con AVCC
-		adc_set_voltage_reference(ADC_VREF_AVCC);
-		//Elegimos convertidor AD
+
 		adc_start_conversion();
-		sleep_mode();
-		tmp += AdcReadValue();	  //la funcion de lectura no sirve.
-		ClearAdcInterrupt();
+		while (!adc_conversion_is_complete()) {}
+		//sleep_mode();
+		tmp += AdcReadValue();
+		//ClearAdcInterrupt();
 	}
 	*result = (uint16_t) tmp >> DIV_AVERAGE;
 	AdcClose();
@@ -93,8 +100,8 @@ static void AdcOpen(void) {
 	EnableUsedAnalogInputBuffer();
 	adc_enable();
 	set_sleep_mode(SLEEP_MODE_ADC);
-	adc_enable_interrupt();
-	ClearAdcInterrupt();
+	//adc_enable_interrupt();
+	//ClearAdcInterrupt();
 }
 
 static void AdcClose (void) {

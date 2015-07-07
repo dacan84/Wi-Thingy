@@ -13,7 +13,6 @@ static void NtcInitIO(void);
 
 void NtcInit(void) {
 	NtcInitIO();
-	AdcReInit();
 }
 
 void NtcMeasure(uint16_t* data) {

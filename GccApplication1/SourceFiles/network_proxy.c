@@ -16,7 +16,7 @@
 #include "ntc.h"
 
 const uint8_t COORDINATOR_ADDRESS[8] = {0x00, 0x13, 0xA2, 0x00, 0x40, 0x48, 0x94, 0x94};
-const uint8_t SENSORS[] = {H25K5A_ID, NTC_ID}; //SHT_ID, MS_ID, BMP085_ID};
+const uint8_t SENSORS[] = {NTC_ID, H25K5A_ID, SHT_ID, MS_ID};//, BMP085_ID};
 const uint8_t BROADCAST_RADIUS = 0x00;
 const uint8_t TRANSMIT_OPTIONS = 0x00;
 
@@ -29,7 +29,7 @@ extern int8_t	bmpCoef[11];
 extern uint16_t msCoef[6];
 
 bool NetworkAwake(void)	{
-	return ioport_get_pin_level(XBEE_INT_LEVEL);
+	return !((bool) ioport_get_pin_level(XBEE_INT_LEVEL));
 }
 
 void ClearNetworkInterrupt(void) {
@@ -42,18 +42,18 @@ void SendMeasures(void) {
 	Payload payload;
 	XBeeCreatePacket(&packet);
 	PayloadInit(&payload);
-	PayloadPutByte(&payload, MOBILE);
+	PayloadPutByte(&payload, NO_MOBILE);
 	PayloadPutByte(&payload, sizeof(SENSORS));
 	PayloadPutString(&payload, SENSORS);
-	PayloadPutWord(&payload, h25k5aData);
 	PayloadPutWord(&payload, ntcData);
-	//PayloadPutWord(&payload, shtData.temperature.i);
-	//PayloadPutWord(&payload, shtData.humidity.i);
-	//for(i=0;i<sizeof(msCoef);++i){
-	//PayloadPutWord(&payload,msCoef[i]);
-	//}
-	//PayloadPutWord(&payload,msData.pressureD1);
-	//PayloadPutWord(&payload,msData.temperatureD2);
+	PayloadPutWord(&payload, h25k5aData);
+	PayloadPutWord(&payload, shtData.temperature.i);
+	PayloadPutWord(&payload, shtData.humidity.i);
+	for(i=0;i<sizeof(msCoef);++i){
+		PayloadPutWord(&payload,msCoef[i]);
+	}
+	PayloadPutWord(&payload,msData.pressureD1);
+	PayloadPutWord(&payload,msData.temperatureD2);
 	//for(i=0;i<sizeof(bmpCoef);++i){
 	//PayloadPutByte(&payload,bmpCoef[i]);
 	//}

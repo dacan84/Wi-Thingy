@@ -33,8 +33,4 @@ bool XBeeSerialCheckInterrupt(void);
 
 void XBeeSerialAckInterrupt(void);
 
-void Usart1PowerONandEnable (void);
-
-void Usart1PowerOFFandDisable (void);
-
 #endif /* DIGI_SERIAL_H_ */

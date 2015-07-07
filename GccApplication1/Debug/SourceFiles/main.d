@@ -24,8 +24,11 @@ SourceFiles/main.d SourceFiles/main.o: ../SourceFiles/main.c \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\pgmspace.h \
  ../src/ASF/common/services/ioport/mega/ioport.h \
  ../HeaderFiles/interrupts.h ../HeaderFiles/sensor_proxy.h \
- ../HeaderFiles/bsp.h ../HeaderFiles/XBee/digi_api.h \
- ../HeaderFiles/XBee/payload.h
+ ../HeaderFiles/bsp.h ../HeaderFiles/network_proxy.h \
+ ../HeaderFiles/XBee/digi_api.h ../HeaderFiles/XBee/payload.h \
+ c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\util\delay.h \
+ c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
+ c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\math.h
 
 c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\sleep.h:
 
@@ -85,6 +88,14 @@ c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-g
 
 ../HeaderFiles/bsp.h:
 
+../HeaderFiles/network_proxy.h:
+
 ../HeaderFiles/XBee/digi_api.h:
 
 ../HeaderFiles/XBee/payload.h:
+
+c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\util\delay.h:
+
+c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\util\delay_basic.h:
+
+c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\math.h:

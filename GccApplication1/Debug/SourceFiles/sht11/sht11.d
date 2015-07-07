@@ -1,5 +1,5 @@
 SourceFiles/sht11/sht11.d SourceFiles/sht11/sht11.o: \
- ../SourceFiles/sht11/sht11.c ../HeaderFiles/adc/../sht11/sht11.h \
+ ../SourceFiles/sht11/sht11.c ../HeaderFiles/sht11/sht11.h \
  ../HeaderFiles/bsp.h \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
@@ -28,7 +28,7 @@ SourceFiles/sht11/sht11.d SourceFiles/sht11/sht11.o: \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\math.h
 
-../HeaderFiles/adc/../sht11/sht11.h:
+../HeaderFiles/sht11/sht11.h:
 
 ../HeaderFiles/bsp.h:
 

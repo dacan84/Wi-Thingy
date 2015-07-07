@@ -8,7 +8,6 @@
 #include "digi_serial.h"
 #include <avr/power.h>
 
-static uint8_t EUSART_9600 = 25;
 static void EnableUsart1Txd(void);
 static void DisableUsart1Txd(void);
 static void EnableUsart1Rxd(void);
@@ -32,6 +31,8 @@ void XBeeSerialInit(uint8_t baudrate) {
 	UBRR1L = baudrate;
 	//Asincrono (UMSEL = 0),sin paridad (UPM01:0 por defecto 0)
 	//8 bits (UCSZ02:0 = 011) y 1 bit de parada (USBS0 = 0)
+	EnableUsart1Txd();
+	EnableUsart1Rxd();
 }
 
 void XBeeSerialSend(uint8_t value) {
@@ -65,19 +66,6 @@ void XBeeSerialClose(void) {
 	DisableUsart1Rxd();
 	DisableUart1TxInterrupt();
 	DisableUart1RxInterrupt();
-}
-
-void Usart1PowerONandEnable (void) {
-	power_usart1_enable();
-	XBeeSerialInit(EUSART_9600);
-	EnableUsart1Txd();
-	EnableUsart1Rxd();
-}
-
-void Usart1PowerOFFandDisable (void) {
-	DisableUsart1Txd();
-	DisableUsart1Rxd();
-	power_usart1_disable();
 }
 
 static void EnableUsart1Txd(void) {
@@ -119,5 +107,4 @@ bool XBeeSerialCheckInterrupt(void) {
 
 void XBeeSerialAckInterrupt(void) {
 	UCSR1A&=_BV(RXC1);
-	cli();
 }

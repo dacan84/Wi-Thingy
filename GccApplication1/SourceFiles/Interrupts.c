@@ -15,7 +15,7 @@
 #include <avr/sleep.h>
 #include <avr/power.h>
 #include <util/delay.h>
-bool x = false;
+
 void EnableGeneralInterrupts(void) {
 	sei();
 }
@@ -40,7 +40,6 @@ void DisableExternalInterruptPCINT0(void)  {
 	PCMSK0 &= ~(_BV(PCINT0));
 }
 
-
 void ClearExternalInterruptFlag (uint8_t bit) {
 	EIFR &= ~(_BV(bit));
 }
@@ -49,28 +48,24 @@ void ClearExternalInterruptFlag (uint8_t bit) {
 INTERRUPCIÓN PRINCIPAL
 ******************************************************************/
 ISR (PCINT0_vect) {
-
-	x=NetworkAwake();
-	//DisableGeneralInterrupts();
 	
+	DisableGeneralInterrupts();
 	//DisableExternalInterruptPCINT0();
-	if (x){
-		
-		//ClearNetworkInterrupt();
+	if (NetworkAwake()){		
+		//power_usart1_enable();
 		EnableGeneralInterrupts();
-		//set_sleep_mode(SLEEP_MODE_IDLE);
+		set_sleep_mode(SLEEP_MODE_IDLE);
 		// Gather measurements
 		MeasureSensors();
-		Usart1PowerONandEnable();
-		_delay_ms(1);
+		
 		// Send measurements
 		SendMeasures();
-		Usart1PowerOFFandDisable();		
+		//power_usart1_disable();		
 	}
 	
 	set_sleep_mode(SLEEP_MODE_PWR_DOWN);
 	
 	//EnableExternalInterruptPCINT0();
 	EnableGeneralInterrupts();
-	//ClearNetworkInterrupt();
+	ClearNetworkInterrupt();
 }

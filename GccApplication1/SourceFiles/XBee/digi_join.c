@@ -18,16 +18,14 @@ static void XBeeSetSleepMode(uint8_t mode);
 /*..........................................................................*/
 /* Join xbee */
 void XBeeJoin(void) {
-	Usart1PowerONandEnable();
-	 _delay_ms(10);
 	XBeeReset();
-	_delay_ms(50);
+	_delay_ms(60);
 	// Simulate one press commissioning button
 	XBeeCommissioning(COMMISSIONING_ONE_PRESS);
-	 _delay_ms(10);
+	_delay_ms(15);
 	// Set sleep mode 8
-	XBeeSetSleepMode(XBEE_DEEP_SLEEP_MODE);	
-	Usart1PowerOFFandDisable();
+	XBeeSetSleepMode(XBEE_DEEP_SLEEP_MODE);
+	_delay_ms(15);
 }
 
 /*..........................................................................*/

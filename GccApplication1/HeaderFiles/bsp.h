@@ -28,8 +28,9 @@
 #define IRCA_ID     'I'
 #define CO2D1_ID    'C'
 #define BMP085_ID   'B'
-#define H25K5A_ID	'H'
-#define NTC_ID		'N'
+#define INTERNAL_INTEGRITY_ID 'T'
+//#define H25K5A_ID	'H'
+//#define NTC_ID		'N'
 #define MS_ID		'M'
 
 void BspInit(void);

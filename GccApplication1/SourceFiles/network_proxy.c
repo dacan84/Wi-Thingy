@@ -16,7 +16,7 @@
 #include "ntc.h"
 
 const uint8_t COORDINATOR_ADDRESS[8] = {0x00, 0x13, 0xA2, 0x00, 0x40, 0x48, 0x94, 0x94};
-const uint8_t SENSORS[] = {NTC_ID, H25K5A_ID, SHT_ID, MS_ID};//, BMP085_ID};
+const uint8_t SENSORS[] = {INTERNAL_INTEGRITY_ID, SHT_ID, MS_ID};//, BMP085_ID};
 const uint8_t BROADCAST_RADIUS = 0x00;
 const uint8_t TRANSMIT_OPTIONS = 0x00;
 

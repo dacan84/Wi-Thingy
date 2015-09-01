@@ -22,7 +22,7 @@ void XBeeJoin(void) {
 	_delay_ms(60);
 	// Simulate one press commissioning button
 	XBeeCommissioning(COMMISSIONING_ONE_PRESS);
-	_delay_ms(15);
+	_delay_ms(60);
 	// Set sleep mode 8
 	XBeeSetSleepMode(XBEE_DEEP_SLEEP_MODE);
 	_delay_ms(15);

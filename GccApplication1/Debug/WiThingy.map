@@ -776,7 +776,7 @@ END GROUP
  *(.fini0)
                 0x00001236                _etext = .
 
-.data           0x00800200       0x16 load address 0x00001236
+.data           0x00800200       0x14 load address 0x00001236
                 0x00800200                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -789,45 +789,44 @@ END GROUP
  *(.rodata)
  *(.rodata*)
  .rodata.SENSORS
-                0x00800209        0x4 SourceFiles/network_proxy.o
+                0x00800209        0x3 SourceFiles/network_proxy.o
                 0x00800209                SENSORS
  .rodata.COORDINATOR_ADDRESS
-                0x0080020d        0x8 SourceFiles/network_proxy.o
-                0x0080020d                COORDINATOR_ADDRESS
+                0x0080020c        0x8 SourceFiles/network_proxy.o
+                0x0080020c                COORDINATOR_ADDRESS
  *(.gnu.linkonce.d*)
-                0x00800216                . = ALIGN (0x2)
- *fill*         0x00800215        0x1 
-                0x00800216                _edata = .
-                0x00800216                PROVIDE (__data_end, .)
+                0x00800214                . = ALIGN (0x2)
+                0x00800214                _edata = .
+                0x00800214                PROVIDE (__data_end, .)
 
-.bss            0x00800216       0xa3
-                0x00800216                PROVIDE (__bss_start, .)
+.bss            0x00800214       0xa3
+                0x00800214                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
- .bss.msbError  0x00800216        0x1 SourceFiles/ms5540b/ms5540b.o
-                0x00800216                msbError
+ .bss.msbError  0x00800214        0x1 SourceFiles/ms5540b/ms5540b.o
+                0x00800214                msbError
  .bss.joinPacket
-                0x00800217       0x7d SourceFiles/XBee/digi_join.o
+                0x00800215       0x7d SourceFiles/XBee/digi_join.o
  *(COMMON)
- COMMON         0x00800294       0x18 SourceFiles/ms5540b/ms5540b.o
-                0x00800294                w
-                0x0080029c                msData
-                0x008002a0                msCoef
- COMMON         0x008002ac        0xd SourceFiles/sensor_proxy.o
-                0x008002ac                shtData
-                0x008002b2                ntcData
-                0x008002b4                h25k5aData
-                0x008002b6                bmpData
-                0x008002b9                PROVIDE (__bss_end, .)
+ COMMON         0x00800292       0x18 SourceFiles/ms5540b/ms5540b.o
+                0x00800292                w
+                0x0080029a                msData
+                0x0080029e                msCoef
+ COMMON         0x008002aa        0xd SourceFiles/sensor_proxy.o
+                0x008002aa                shtData
+                0x008002b0                ntcData
+                0x008002b2                h25k5aData
+                0x008002b4                bmpData
+                0x008002b7                PROVIDE (__bss_end, .)
                 0x00001236                __data_load_start = LOADADDR (.data)
-                0x0000124c                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x0000124a                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x008002b9        0x0
-                0x008002b9                PROVIDE (__noinit_start, .)
+.noinit         0x008002b7        0x0
+                0x008002b7                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x008002b9                PROVIDE (__noinit_end, .)
-                0x008002b9                _end = .
-                0x008002b9                PROVIDE (__heap_start, .)
+                0x008002b7                PROVIDE (__noinit_end, .)
+                0x008002b7                _end = .
+                0x008002b7                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -952,7 +951,7 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x6ee8
+.debug_info     0x00000000     0x6eea
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x576 SourceFiles/adc/averaged_adc.o
  .debug_info    0x00000576       0x9b SourceFiles/bsp.o
@@ -968,11 +967,11 @@ END GROUP
  .debug_info    0x00003fc4      0x64b SourceFiles/XBee/digi_api.o
  .debug_info    0x0000460f      0x774 SourceFiles/XBee/digi_at_request.o
  .debug_info    0x00004d83      0x376 SourceFiles/XBee/digi_hw.o
- .debug_info    0x000050f9      0x9c7 SourceFiles/XBee/digi_join.o
- .debug_info    0x00005ac0      0x656 SourceFiles/XBee/digi_send.o
- .debug_info    0x00006116      0x415 SourceFiles/XBee/digi_serial.o
- .debug_info    0x0000652b      0x6b6 SourceFiles/XBee/digi_transmit_request.o
- .debug_info    0x00006be1      0x307 SourceFiles/XBee/payload.o
+ .debug_info    0x000050f9      0x9c9 SourceFiles/XBee/digi_join.o
+ .debug_info    0x00005ac2      0x656 SourceFiles/XBee/digi_send.o
+ .debug_info    0x00006118      0x415 SourceFiles/XBee/digi_serial.o
+ .debug_info    0x0000652d      0x6b6 SourceFiles/XBee/digi_transmit_request.o
+ .debug_info    0x00006be3      0x307 SourceFiles/XBee/payload.o
 
 .debug_abbrev   0x00000000     0x1cb3
  *(.debug_abbrev)
